@@ -102,7 +102,13 @@ Live Boot Menu with GRUB:sta valitaan: Start installer. Seuraavaksi valitaan jä
 17. Painetaan valintaa: Finish partitioning and write changes to disk
 18. ![kuva9](./Pictures/kuva9.png) Valitaan **Yes**
 19. Tämän jälkeen alkaa asennus, joka kestää hetken
-20. 
+20. Valitaan **Continue**, jolloin järjestelmä käynnistää itsensä uudelleen
+21. Uudelleen käynnistyksen jälkeen kirjaudutaan sisään tehdyillä tunnuksilla -> user: thomas -> password: *******
+
+Debian asennettu:  
+![kuva10](./Pictures/kuva10.png)
+
+
 
 
 
