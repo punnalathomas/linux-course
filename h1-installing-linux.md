@@ -48,6 +48,35 @@ Aloitin Virtualboxin asentamisen avaamalla Heinosen ohjeet ja avaamalla [downloa
 1. Avasin ladatun Oracle VirtualBox 7.2.0 installerin
 2. Valitsin kovalevyn jossa oli vähintää 30GB vapaata tilaa.
 3. Asennusohjelma varoitti nettiyhteyden katkeamisesta, joten pidin huolta, että kaikki tarvittavat tiedostot on tallennettu ennen jatkamista eteenpäin.
+4. Tämän jälkeen klikkasin vain next, niin kauan, että pääsin asennuksen aloittamiseen.
+5. Asennuksen jälkeen avasin Virtualbox-ohjelman.
+## Linuxin asennus Virtualbox Managerilla
+Virtualboxin asennuksen jälkeen kävin lataamassa Debianin ISO imagen osoitteesta: [download Debian ISO image](https://cdimage.debian.org/debian-cd/13.0.0-live/amd64/iso-hybrid/). Valitsin debian-live-13.0.0-amd64-xfce.iso tiedoston Heinosen ohjeiden mukaan. Ctrl + F ominaisuus selaimessa osoittautui hyödylliseksi tässä kohtaa. Näin varmistun, että lataan varmasti oikean tiedoston. Tiedoston lataamisen jälkeen aloitin Debianin asennuksen VirtualBox managerilla.  
+VirtualBox mangerista klikataan **NEW**  
+![kuva1](./Pictures/kuva1.png)  
+
+Seuraavaksi annetaan uudelle VM:lle nimi ja valitaan polku mistä ladattu ISO tiedosto löytyy. Käyttöjärjestelmäksi valittiin Linux, OS distribution: Debian, OS version: Debian(64-bit) ja Proceed with unattended Installation: valitaan uncheck. Kun valitut kohdat ovat oikein, painetaan **Next**   
+![kuva2](./Pictures/kuva2.png)   
+
+Base Memory: 4090 MB, Number of CPUs: 2, Disk Size: 50 GB, Use EFI: check ja **Next**.  
+![kuva3](./Pictures/kuva3.png)  
+
+Tarkistetaan Summary ja painetaan **Finish**  
+![kuva4](./Pictures/kuva4.png)   
+Huomasin Summarysta, että VM Folder ei ollut halutussa paikassa, joten kävin vaihtamassa sen ennen asennuksen aloittamista, vaihdoin VM Name: Debianthomas, muuten asetukset pitävät paikkansa.  
+
+Seuraavaksi käynnistin VM:n painamalla hiiren oikeaa nappia Debianthomas kohdasta. Tämän jälkeen **Start** -> **Start with GUI**.  
+![kuva5](./Pictures/kuva5.png)  
+
+Sain virheilmoituksen, jonka mukaan VT-x ei ole päällä. Koitin korjata asian käymällä laittamassa sen päälle.  
+![kuva6](./Pictures/kuva6.png)
+
+
+
+
+
+
+
 
 
 ## Lähteet
