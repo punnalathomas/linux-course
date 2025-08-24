@@ -47,7 +47,7 @@ Tämä on testikuva:
 Aloitin Virtualboxin asentamisen avaamalla Heinosen ohjeet ja avaamalla [download Virtualbox sivun](https://www.virtualbox.org/wiki/Downloads) Latasin sivulta VirtualBox 7.2.0 platform packages: Windows host version. Tässä kohtaa siirryin Karvisen(2021) install debian on virtual box ohjeisiin ja käytin niitä hyödyksi Virtual machinen asennukseen. 
 1. Avasin ladatun Oracle VirtualBox 7.2.0 installerin
 2. Valitsin kovalevyn jossa oli vähintää 30GB vapaata tilaa.
-3. 
+3. Asennusohjelma varoitti nettiyhteyden katkeamisesta, joten pidin huolta, että kaikki tarvittavat tiedostot on tallennettu ennen jatkamista eteenpäin.
 
 
 ## Lähteet
