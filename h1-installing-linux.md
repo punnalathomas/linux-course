@@ -1,20 +1,3 @@
-vinkit: mikä debianfile sivulta?debian live 13.00 xfce.iso
-virtual box extencion packkia ei välttis tarvita
-domain name ihan sama
-salasanat ei tarvi rootille
-guided - use entire disk
-all files in one partition
--1 /n
--2
--3
-# otsikko
-## otsikko 2
-adada
-### otsikko 3
-sources list examples ?
-bookworm sanat -> trixie
-tämä on ensimmäinen rivi.  
-tämä on toinen rivi.
 # Tietokone ja käyttöjärjestelmä
 **GPU:** Nvidia RTX 2070  
 **Processor:** Intel Core i9-9900K 3.60 Ghz    
@@ -108,6 +91,52 @@ Live Boot Menu with GRUB:sta valitaan: Start installer. Seuraavaksi valitaan jä
 Debian asennettu:  
 ![kuva10](./Pictures/kuva10.png)
 
+Get update komennon testaus antoi seuraavan virheen:  
+![kuva11](./Pictures/kuva11.png)  
+```
+sudo apt-get update
+```
+Seuraavaan vaiheeseen on käytetty apuna Ksk Royalin youtube-videota, sekä Heinosen ohjeita. Seuraavaksi annoin komennon:
+```
+sudo nano /etc/apt/sources.list
+```
+Tämä avasi sources.listin -> sinne laitoin komennot:  
+```
+deb https://deb.debian.org/debian trixie main non-free-firmware
+deb-src https://deb.debian.org/debian trixie main non-free-firmware
+
+deb https://security.debian.org/debian-security trixie-security main non-free-firmware
+deb-src https://security.debian.org/debian-security trixie-security main non-free-firmware
+
+deb https://deb.debian.org/debian trixie-updates main non-free-firmware
+deb-src https://deb.debian.org/debian trixie-updates main non-free-firmware
+```
+![kuva13](./Pictures/kuva13.png)
+Seuraavaksi Ctrl+O -> Enter -> Ctrl+X(poistumiseen)  
+Tämän jälkeen komennot järjestyksessä:  
+```
+sudo apt-get update
+```
+```
+sudo apt-get -y dist-upgrade
+```
+```
+sudo apt-get -y install ufw
+```
+```
+sudo ufw enable
+```
+Palomuuri asennettuna:  
+![kuva12](./Pictures/kuva12.png)  
+Tämän jälkeen applications->log out->restart
+
+## VirtualBox Guest Additions asennus
+
+
+
+
+
+
 
 
 
@@ -128,6 +157,7 @@ Karvinen, T. 2006. Raportin kirjoittaminen. Luettavissa: https://terokarvinen.co
 Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy: läksyt. Luettavissa: https://terokarvinen.com/linux-palvelimet/. luettu: 24.8.2025 
 Karvinen, T. 2023. dreamhugmonkey. Luettavissa: https://github.com/terokarvinen/dreamhugmonkey. Luettu 24.8.2025  
 Karvinen, T. 2021. install debian on virtual box. Luettavissa: https://terokarvinen.com/2021/install-debian-on-virtualbox/. Luettu 24.8.2025
+KskRoyal. 2025. 10 Things To Do After Installing Debian 13 (TRIXIE). Katsottavissa: https://www.youtube.com/watch?v=qmRq1U9Sz14&t=180s. Katsottu: 24.8.2025
 Heinonen, J. 2025. Johanna-test-repo. linux-20082025.md. luettavissa: https://github.com/johannaheinonen/johanna-test-repo/blob/main/linux-20082025.md. Luettu: 24.8.2025  
 SethClydesdale 2019. Luettavissa: https://github.com/orgs/community/discussions/22534. Luettu: 24.8.2025  
 Markdown Guide. Basic Syntax. Luettavissa: https://www.markdownguide.org/basic-syntax/. Luettu: 24.8.2025
