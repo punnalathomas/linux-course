@@ -68,8 +68,45 @@ Huomasin Summarysta, että VM Folder ei ollut halutussa paikassa, joten kävin v
 Seuraavaksi käynnistin VM:n painamalla hiiren oikeaa nappia Debianthomas kohdasta. Tämän jälkeen **Start** -> **Start with GUI**.  
 ![kuva5](./Pictures/kuva5.png)  
 
-Sain virheilmoituksen, jonka mukaan VT-x ei ole päällä. Koitin korjata asian käymällä laittamassa sen päälle.  
-![kuva6](./Pictures/kuva6.png)
+Sain virheilmoituksen, jonka mukaan VT-x ei ole päällä. Koitin korjata asian käymällä laittamassa sen päälle. VT-x:n päälle laitossa hyödynsin Byte Geek:in youtube-videota aiheesta.  
+![kuva6](./Pictures/kuva6.png)  
+Asetuksen vaihdon jälkeen VM käynnistyi onnistuneesti.  
+
+Seuraavaksi testataan Debiania ennenkuin asennetaan mitään siihen. Valitaan Live system ja painetaan **Enter**.  
+![kuva7](./Pictures/kuva7.png)  
+
+Testataan ensin internet yhteyden toiminta. Klikataan työpöydällä applications -> web browser -> siirrytään halutulle sivulle.
+![kuva8](./Pictures/kuva8.png)  
+
+Testin jälkeen on aika aloittaa itse asennus. Päästäkseni Live Boot Menu:un, avasin Terminal emulatorin ja annoin komennon:
+```
+sudo reboot
+```
+Live Boot Menu with GRUB:sta valitaan: Start installer. Seuraavaksi valitaan järjestyksessä:
+1. **Kieli**: English
+2. **Location**: other
+3. **Continent or region**: Europe
+4. **Country**: Finland
+5. **Configure locales**: en_US.UTF-8
+6. **Configure the keyboard**: Finnish
+7. Edellä mainittujen jälkeen tulee hieman asennusta, jonka jälkeen jatketaan Configuratioo järjestyksessä
+8. **Hostname**: debian
+9. **Domain name**: punnala.com
+10. **Root password**: jätetään tyhjäksi
+11. **Full name for the new user**: thomas punnala
+12. **Username for your account**: thomas
+13. **Password**: valitaan vahva salasana, jota ei mainita tässä ohjeessa
+14. **Partition disks**: Guided - use entire disk
+15. **Partition disks**: valitaan ainut vaihtoehto SCI3
+16. **Partition disks**: All files in one partition
+17. Painetaan valintaa: Finish partitioning and write changes to disk
+18. ![kuva9](./Pictures/kuva9.png) Valitaan **Yes**
+19. Tämän jälkeen alkaa asennus, joka kestää hetken
+20. 
+
+
+
+
 
 
 
@@ -80,6 +117,7 @@ Sain virheilmoituksen, jonka mukaan VT-x ei ole päällä. Koitin korjata asian 
 
 
 ## Lähteet
+ByteGeek 2025. Enable Virtualization (Intel VT-x) to Fix VMware Errors. Katsottavissa: https://www.youtube.com/watch?v=3PhNDH_pQDk. Katsottu: 24.8.2025
 Karvinen, T. 2006. Raportin kirjoittaminen. Luettavissa: https://terokarvinen.com/2006/raportin-kirjoittaminen-4/. Luettu: 24.8.2025  
 Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy: läksyt. Luettavissa: https://terokarvinen.com/linux-palvelimet/. luettu: 24.8.2025 
 Karvinen, T. 2023. dreamhugmonkey. Luettavissa: https://github.com/terokarvinen/dreamhugmonkey. Luettu 24.8.2025  
