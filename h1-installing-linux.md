@@ -1,3 +1,4 @@
+update: 25.8.2025  
 # Tietokone ja käyttöjärjestelmä
 **GPU:** Nvidia RTX 2070  
 **Processor:** Intel Core i9-9900K 3.60 Ghz    
@@ -12,11 +13,11 @@ Raportti siis tulee tehdä huolellisesti ja täsmällisesti. On tärkeää sisä
 ## Tiivistelmä
 **24.8.25**  
 **Aloitusaika**: 16:33  
-**Lopetusaika**: 20:00
+**Lopetusaika**: 20:00  
 **25.8.25**  
-**Aloitusaika**: 15:40
+**Aloitusaika**: 15:40  
 **Lopetusaika**: 16:20  
-Tämä raportti sisältää 
+Tämä raportti sisältää onnistuneen Linuxin asentamisen Oracle Virtual Boxiin. Raportti käsittelee myös hieman tutustumista Markdownin käyttöön. Tämä raportti tehtiin kahden päivän aikana, josta osa ajasta kului Markdownin syntaksin opetteluun. Linuxin ja Virtualboxin asennuksessa on käytetty pääsääntöisesti apuna Karvisen ja Heinosen ohjeita asennuksesta. Isompia ongelmia ei asennuksien aikana syntynyt, ja syntyneet ongelmat sain ratkottua etsimällä tietoa internetistä.
 ## Kuvien lisääminen Markdowniin
 Tutustuin aluksi Tero Karvisen tekemään ohjeeseen, joka löytyi repositorysta nimeltä **dreamhugmonkey**. Avasin README.md tiedoston ja tutkin **Preview**-, sekä **Code**-näkymää. Sain hyvän käsityksen, kuinka kuvan saa lisättyä tekstin sekaan Markdownissa (Karvinen, dreamhugmonkey). Tutkin myös Johanna Heinosen ohjetta: How to Install Linux to Virtualbox? Huomasin, että Heinonen oli laittanut kaikki kuvat **Pictures**-kansion alle, joten halusin käyttää samaa menetelmää (Heinonen 2025). Nopealla googlettamisella löysin kuinka lisätään kansio omaan repositoryyn.  
 1. Avaa haluttu repository
@@ -178,12 +179,20 @@ Resoluutiossa en ole varma huomasinko isoa eroa, mutta oletan että asennus onni
 
 
 ## Lähteet
-ByteGeek 2025. Enable Virtualization (Intel VT-x) to Fix VMware Errors. Katsottavissa: https://www.youtube.com/watch?v=3PhNDH_pQDk. Katsottu: 24.8.2025
+ByteGeek 2025. Enable Virtualization (Intel VT-x) to Fix VMware Errors. Katsottavissa: https://www.youtube.com/watch?v=3PhNDH_pQDk. Katsottu: 24.8.2025  
+
+Heinonen, J. 2025. Johanna-test-repo. linux-20082025.md. Luettavissa: https://github.com/johannaheinonen/johanna-test-repo/blob/main/linux-20082025.md. Luettu: 24.8.2025  
+
 Karvinen, T. 2006. Raportin kirjoittaminen. Luettavissa: https://terokarvinen.com/2006/raportin-kirjoittaminen-4/. Luettu: 24.8.2025  
-Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy: läksyt. Luettavissa: https://terokarvinen.com/linux-palvelimet/. luettu: 24.8.2025 
-Karvinen, T. 2023. dreamhugmonkey. Luettavissa: https://github.com/terokarvinen/dreamhugmonkey. Luettu 24.8.2025  
-Karvinen, T. 2021. install debian on virtual box. Luettavissa: https://terokarvinen.com/2021/install-debian-on-virtualbox/. Luettu 24.8.2025
-KskRoyal. 2025. 10 Things To Do After Installing Debian 13 (TRIXIE). Katsottavissa: https://www.youtube.com/watch?v=qmRq1U9Sz14&t=180s. Katsottu: 24.8.2025
-Heinonen, J. 2025. Johanna-test-repo. linux-20082025.md. luettavissa: https://github.com/johannaheinonen/johanna-test-repo/blob/main/linux-20082025.md. Luettu: 24.8.2025  
+
+Karvinen, T. 2021. install debian on virtual box. Luettavissa: https://terokarvinen.com/2021/install-debian-on-virtualbox/. Luettu: 24.8.2025  
+
+Karvinen, T. 2023. dreamhugmonkey. Luettavissa: https://github.com/terokarvinen/dreamhugmonkey. Luettu: 24.8.2025  
+
+Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy: läksyt. Luettavissa: https://terokarvinen.com/linux-palvelimet/. Luettu: 24.8.2025  
+
+KskRoyal. 2025. 10 Things To Do After Installing Debian 13 (TRIXIE). Katsottavissa: https://www.youtube.com/watch?v=qmRq1U9Sz14&t=180s. Katsottu: 24.8.2025  
+
+Markdown Guide. Basic Syntax. Luettavissa: https://www.markdownguide.org/basic-syntax/. Luettu: 24.8.2025  
+
 SethClydesdale 2019. Luettavissa: https://github.com/orgs/community/discussions/22534. Luettu: 24.8.2025  
-Markdown Guide. Basic Syntax. Luettavissa: https://www.markdownguide.org/basic-syntax/. Luettu: 24.8.2025
