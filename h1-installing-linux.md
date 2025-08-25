@@ -142,7 +142,7 @@ Klikataan hiirellä ylhäältä auki **Devices**, ja valitaan **Insert Guest Add
 ![kuva14](./Pictures/kuva14.png)  
 Tämän jälkeen huomaamme työpöydälle ilmestyneen CD-imagen "VBox_Gas_". Tämän jälkeen klikataan vasemmasta yläkulmasta **Applications** -> **File Manager** -> File manager auki klikataan hiiren vasemmalla napilla CD-iconia alla olevan kuvan mukaisesti.  
 ![kuva15](./Pictures/kuva15.png)  
-Tämän jälkeen **Applications** -> **Terminal Emulatro** -> Seuraavat komennot terminaaliin järjestyksessä ->  
+Tämän jälkeen **Applications** -> **Terminal Emulator** -> Seuraavat komennot terminaaliin järjestyksessä ->  
 ```
 cd /media/cdrom0
 ```
