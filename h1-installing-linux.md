@@ -10,8 +10,13 @@ Hyvän raportin tulee myös olla helppolukuinen. Se tuo tekijästä ammattimaise
 Raportti siis tulee tehdä huolellisesti ja täsmällisesti. On tärkeää sisällyttää kaikki onnistumiset ja epäonnistumiset, jolloin mahdollisien virheiden selvittäminen on helpompaa. Työhön on myös hyvä sisällyttää paljon kuvakaappauksia tekemisestään, koska kuva voi havainnollistaa tekovaiheen selkeämmin. Muista myös viitata lähteisiin. (Karvinen 2006)  
 # Linuxin asennus virtuaalikoneeseen
 ## Tiivistelmä
+**24.8.25**  
 **Aloitusaika**: 16:33  
-**Lopetusaika**: 
+**Lopetusaika**: 20:00
+**25.8.25**  
+**Aloitusaika**: 15:40
+**Lopetusaika**: 16:20  
+Tämä raportti sisältää 
 ## Kuvien lisääminen Markdowniin
 Tutustuin aluksi Tero Karvisen tekemään ohjeeseen, joka löytyi repositorysta nimeltä **dreamhugmonkey**. Avasin README.md tiedoston ja tutkin **Preview**-, sekä **Code**-näkymää. Sain hyvän käsityksen, kuinka kuvan saa lisättyä tekstin sekaan Markdownissa (Karvinen, dreamhugmonkey). Tutkin myös Johanna Heinosen ohjetta: How to Install Linux to Virtualbox? Huomasin, että Heinonen oli laittanut kaikki kuvat **Pictures**-kansion alle, joten halusin käyttää samaa menetelmää (Heinonen 2025). Nopealla googlettamisella löysin kuinka lisätään kansio omaan repositoryyn.  
 1. Avaa haluttu repository
@@ -131,6 +136,27 @@ Palomuuri asennettuna:
 Tämän jälkeen applications->log out->restart
 
 ## VirtualBox Guest Additions asennus
+Seuraavaksi asennetaan hieman ominaisuuksia Linuxsiimme, jolloin käyttökokemusta saadaan parannettua.  
+Klikataan hiirellä ylhäältä auki **Devices**, ja valitaan **Insert Guest Additions CD image**  
+![kuva14](./Pictures/kuva14.png)  
+Tämän jälkeen huomaamme työpöydälle ilmestyneen CD-imagen "VBox_Gas_". Tämän jälkeen klikataan vasemmasta yläkulmasta **Applications** -> **File Manager** -> File manager auki klikataan hiiren vasemmalla napilla CD-iconia alla olevan kuvan mukaisesti.  
+![kuva15](./Pictures/kuva15.png)  
+Tämän jälkeen **Applications** -> **Terminal Emulatro** -> Seuraavat komennot terminaaliin järjestyksessä ->  
+```
+cd /media/cdrom0
+```
+```
+ls
+```
+```
+sudo bash VBoxLinuxAdditions.run
+```
+Saimme seuraavanlaisen viestin terminaaliin.  
+![kuva16](./Pictures/kuva16.png)  
+Käynnistetään järjestelmä uudelleen ja katsotaan mitä käy.  
+Uudelleen käynnistyksen jälkeen COPY PASTEN saa toimimaan seuraavalla tavalla -> **Devices** -> **Shared Clipboard** -> Valitaan **Bidirectional**.  
+Resoluutiossa en ole varma huomasinko isoa eroa, mutta oletan että asennus onnistui, koska copy paste toimii.
+
 
 
 
