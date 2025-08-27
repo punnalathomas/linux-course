@@ -7,3 +7,6 @@ etc on tärkeä hakemisto, löytyy paljon configuraatiofileja. etc vaatii ROOT o
 huom linuxissa jos poistat tai ylikirjoitat jotain, niin se on sitten tehty, eli ei ole palautusta niinkun Windowsissa. Eli tee mitä tiedät tekeväsi.  
 .. menee pykälän eteenpäin hakemistossa  
 cd = pääsee takas kotihakemistoon  
+Editorit esim: nano, micro, 
+uuden tiedoston luonti: nano uusi.txt  
+touch testihakemisto/alihakemisto/(filename) = uusi tiedosto absoluuttista polkua käyttämällä  
