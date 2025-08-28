@@ -54,6 +54,8 @@ Admin komennot. Kun halutaan antaa komentoja jotka vaikuttavat koko järjestelm�
 Lisää vinkkejä komentorivin käyttöön:  
 Näppäimmistön nuoli ylöspäin painettuna palauttaa edellisen komennon. Erityisen hyödyllinen kun on tehnyt kirjoitusvirheen ja haluaa korjata jonkin tietyn komennosta.  
 `clear` tyhjentää komentorivin tekstistä.  
+`sudo apt remove [ohjelma]` Poistaa ohjelman asennuksen  
+
 
 
 ## Micro-editorin asennus
@@ -68,10 +70,23 @@ Painamalla näppäinyhdistelmää CTRL + `g` saadaan käyttöohjeet auki. CTRL +
 Ja näin on asennettu Micro-editor.  
 (Heinonen 2025)  
 ## Apt
-Aloitin komentoriviohjelmia etsimisen googlesta. Käytin promptia `best command line tools linux` ja etsin mielestäni mielenkiintoisimmat ohjelmat. Kaikki ohjelmat saadaan asennettua yhdellä kertaa komennolla `sudo apt-get install thefuck 
+Aloitin komentoriviohjelmia etsimisen googlesta. Käytin promptia `best command line tools linux` ja etsin mielestäni mielenkiintoisimmat ohjelmat. Kaikki ohjelmat saadaan asennettua yhdellä kertaa komennolla `sudo apt-get install thefuck ncdu cowsay`  
 ### thefuck
+Ohjelman asennuksen jälkeen piti asentaa alias kytkentä komennolla `eval $(thefuck --alias)`. Ohjeessa suositeltiin asentamaan se shell-profiiliin. Tämä on itselleni vielä vieras aihe, joten pitäydyin yksinkertaisessa versiossa (nvbn, thefuck).  
+
 Tämä ohjelma korjaa väärin kirjoitetut komennot. Esimerkiksi halusin siirtyä työpöydälle komennolla `cs Desktop/`, joka antoi virheen `bash: cs: command not found`. Nyt voin kirjoittaa komentoriville `fuck` ja se antaa ehdotuksen todennäköisestä komennosta mitä halusin käyttää, tämän jälkeen painan Entteriä ja oikea komento ajetaan.  
 ![kuva22](./Pictures/kuva22.png)  
+
+## ncdu
+Tätä ohjelmaa voidaan käyttää levytilan tarkasteluun. Näyttää suoraan mitkä kansiot ja tiedostot vievät eniten tilaa. Pystyn poistamaan ohjelman kautta turhat hakemistot ja tiedostot. (Brock, W. 2024)  
+![kuva23](./Pictures/kuva23.png)
+![kuva24](./Pictures/kuva24.png)  
+
+## cowsay
+Tämä ohjelma piirtää komentoriville lehmän, joka sanoo käyttäjän haluaman merkkijonon. Esimerkiksi ´cowsay hei maailma!` tulostaa seuraavanlaisen kuvan:  
+![kuva25](./Pictures/kuva25.png)   
+
+
 
 
 
@@ -87,9 +102,11 @@ Seuraavaksi etsitään tekstistä kaikki mitkä alkavat sanalla micro. `^` -merk
 Tässä hyödynnettiin `grep`:in lisäksi Pipea. Eli sen sijaan, että tulostan omalle ruudulleni kaiken, annan sen grep-komennolle, joka suodattaa haluamani lopputuloksen. (Heinonen 2025)  
 
 ## Lähteet
+Brock, W. 2024. Disk usage with the ncdu Linux command. Katsottavissa: https://www.youtube.com/watch?v=Lt7QzoY7NiE. Katsottu: 28.8.2025  
 Heinonen, J. 2025. linux-27082925.md. johanna-test-repo. Luettavissa: https://github.com/johannaheinonen/johanna-test-repo/blob/main/linux-27082925.md. Luettu: 28.8.2025  
 Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy. Luettavissa: https://terokarvinen.com/linux-palvelimet/. Luettu: 28.8.2025  
 Karvinen, T. 2020. Command Line Basics Revisited. Luettavissa: https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited. Luettu: 28.8.2025
+nvbn. thefuck. repisotory. Luettavissa: https://github.com/nvbn/thefuck. Luettu: 28.8.2025  
 WalkMeTeam. 2025. Graphical user interface (GUI) vs command line interface (CLI). Blogi-kirjoitus. Luettavissa: https://www.walkme.com/blog/graphical-user-interface-vs-command-line-interface/. Luettu: 28.8.2025  
 Heinonen, J. 2025. Linux-palvelimet oppitunti. Kuunneltu: 27.8.2025  
 
