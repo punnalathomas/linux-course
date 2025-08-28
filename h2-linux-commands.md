@@ -70,7 +70,7 @@ Painamalla näppäinyhdistelmää CTRL + `g` saadaan käyttöohjeet auki. CTRL +
 Ja näin on asennettu Micro-editor.  
 (Heinonen 2025)  
 ## Apt
-Aloitin komentoriviohjelmia etsimisen googlesta. Käytin promptia `best command line tools linux` ja etsin mielestäni mielenkiintoisimmat ohjelmat. Kaikki ohjelmat saadaan asennettua yhdellä kertaa komennolla `sudo apt-get install thefuck ncdu cowsay`  
+Aloitin komentoriviohjelmia etsimisen googlesta. Käytin promptia `commandline programs for linux` ja etsin mielestäni mielenkiintoisimmat ohjelmat. Kaikki ohjelmat saadaan asennettua yhdellä kertaa komennolla `sudo apt-get install thefuck ncdu cowsay`  
 ### thefuck
 Ohjelman asennuksen jälkeen piti asentaa alias kytkentä komennolla `eval $(thefuck --alias)`. Ohjeessa suositeltiin asentamaan se shell-profiiliin. Tämä on itselleni vielä vieras aihe, joten pitäydyin yksinkertaisessa versiossa (nvbn, thefuck).  
 
@@ -86,6 +86,26 @@ Tätä ohjelmaa voidaan käyttää levytilan tarkasteluun. Näyttää suoraan mi
 Tämä ohjelma piirtää komentoriville lehmän, joka sanoo käyttäjän haluaman merkkijonon. Esimerkiksi ´cowsay hei maailma!` tulostaa seuraavanlaisen kuvan:  
 ![kuva25](./Pictures/kuva25.png)   
 
+## FHS
+**/** Root directory. Siirryin root directoryyn komennolla `cd /` ja listasin tiedostot ja hakemistot komennolla `ls`. Tärkeitä kansioita ovat esimerkiksi bin/ (sisältää tärkeitä ohjelmia), etc/ (järjestelmän asetukset), home/ (käyttäjien kotihakemistot) ja var/ (lokit, paketinhallinnan välimuistit).  
+![kuva26](./Pictures/kuva26.png)  
+
+**/home/** Kaikkien käyttäjien kotihakemistot. Itselläni näkyy vain kansio `thomas`. `ls -la` komennolla voidaan huomata myös omistajuus (thomas thomas).  
+![kuva27](./Pictures/kuva27.png)  
+
+**/home/thomas/** Tämä on käyttäjän oma hakemisto. Täältä löytyy esimerkiksi käyttäjän omat hakemistot, kuten Desktop ja Documents. Hakemistossa näkyy myös itse tekemäni hei_maailma tiedosto. Documents kansio ei sisällä vielä tiedostoja.   
+![kuva28](./Pictures/kuva28.png)  
+![kuva29](./Pictures/kuva29.png)  
+![kuva30](./Pictures/kuva30.png)  
+`cat hei_maailma` näytti mitä tiedosti pitää sisällään.  
+![kuva31](./Pictures/kuva31.png)  
+Tästä näemme, että olen aiemmin päivittänyt järjestelmän pakettiluettelon.  
+
+**/etc/** Täältä löytyy järjestelmän konfiguraatiot ja asetukset.  
+![kuva32](./Pictures/kuva32.png)  
+Kuvassa tulostettu hostname, tietoja käyttöjärjestelmästä, sekä käyttäjien perustiedot.  
+![kuva33](./Pictures/kuva33.png)  
+![kuva34](./Pictures/kuva34.png)  
 
 
 
