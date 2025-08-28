@@ -1,4 +1,4 @@
-update: 25.8.2025  
+update: 28.8.2025  
 # Tietokone ja käyttöjärjestelmä
 **GPU:** Nvidia RTX 2070  
 **Processor:** Intel Core i9-9900K 3.60 Ghz    
@@ -17,7 +17,7 @@ Raportti siis tulee tehdä huolellisesti ja täsmällisesti. On tärkeää sisä
 **25.8.25**  
 **Aloitusaika**: 15:40  
 **Lopetusaika**: 16:20  
-Tämä raportti sisältää onnistuneen Linuxin asentamisen Oracle Virtual Boxiin. Raportti käsittelee myös hieman tutustumista Markdownin käyttöön. Tämä raportti tehtiin kahden päivän aikana, josta osa ajasta kului Markdownin syntaksin opetteluun. Linuxin ja Virtualboxin asennuksessa on käytetty pääsääntöisesti apuna Karvisen ja Heinosen ohjeita asennuksesta. Isompia ongelmia ei asennuksien aikana syntynyt, ja syntyneet ongelmat sain ratkottua etsimällä tietoa internetistä.
+Tämä raportti sisältää onnistuneen Linuxin asentamisen Oracle Virtual Boxiin. Raportti käsittelee myös hieman tutustumista Markdownin käyttöön. Tämä raportti tehtiin kahden päivän aikana, josta osa ajasta kului Markdownin syntaksin opetteluun. Linuxin ja Virtualboxin asennuksessa on käytetty pääsääntöisesti apuna Karvisen ja Heinosen ohjeita asennuksesta. Isompia ongelmia ei asennuksien aikana syntynyt, ja syntyneet ongelmat sain ratkottua etsimällä tietoa internetistä. Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta (Karvinen 2025).  
 ## Kuvien lisääminen Markdowniin
 Tutustuin aluksi Tero Karvisen tekemään ohjeeseen, joka löytyi repositorysta nimeltä **dreamhugmonkey**. Avasin README.md tiedoston ja tutkin **Preview**-, sekä **Code**-näkymää. Sain hyvän käsityksen, kuinka kuvan saa lisättyä tekstin sekaan Markdownissa (Karvinen, dreamhugmonkey). Tutkin myös Johanna Heinosen ohjetta: How to Install Linux to Virtualbox? Huomasin, että Heinonen oli laittanut kaikki kuvat **Pictures**-kansion alle, joten halusin käyttää samaa menetelmää (Heinonen 2025). Nopealla googlettamisella löysin kuinka lisätään kansio omaan repositoryyn.  
 1. Avaa haluttu repository
