@@ -53,6 +53,7 @@ Admin komennot. Kun halutaan antaa komentoja jotka vaikuttavat koko järjestelm�
 
 Lisää vinkkejä komentorivin käyttöön:  
 Näppäimmistön nuoli ylöspäin painettuna palauttaa edellisen komennon. Erityisen hyödyllinen kun on tehnyt kirjoitusvirheen ja haluaa korjata jonkin tietyn komennosta.  
+`clear` tyhjentää komentorivin tekstistä.  
 
 
 ## Micro-editorin asennus
@@ -65,9 +66,12 @@ Painamalla näppäinyhdistelmää CTRL + `g` saadaan käyttöohjeet auki. CTRL +
 ![kuva20](./Pictures/kuva20.png) 
 ![kuva21](./Pictures/kuva21.png)  
 Ja näin on asennettu Micro-editor.  
-
+(Heinonen 2025)  
 ## Apt
-
+Aloitin komentoriviohjelmia etsimisen googlesta. Käytin promptia `best command line tools linux` ja etsin mielestäni mielenkiintoisimmat ohjelmat. Kaikki ohjelmat saadaan asennettua yhdellä kertaa komennolla `sudo apt-get install thefuck 
+### thefuck
+Tämä ohjelma korjaa väärin kirjoitetut komennot. Esimerkiksi halusin siirtyä työpöydälle komennolla `cs Desktop/`, joka antoi virheen `bash: cs: command not found`. Nyt voin kirjoittaa komentoriville `fuck` ja se antaa ehdotuksen todennäköisestä komennosta mitä halusin käyttää, tämän jälkeen painan Entteriä ja oikea komento ajetaan.  
+![kuva22](./Pictures/kuva22.png)  
 
 
 
