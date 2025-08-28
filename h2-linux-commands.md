@@ -24,7 +24,11 @@ update: 28.8.2025
 ## Tiivistelmä
 **28.8.25**  
 **Aloitusaika**: 16:26  
-**Lopetusaika**: 20:00   
+**Lopetusaika**: 21:00  
+
+**2.8.25**  
+**Aloitusaika**: 
+**Lopetusaika**: 
  
 Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h2 Komentaja pingviini (Karvinen 2025).  
 
