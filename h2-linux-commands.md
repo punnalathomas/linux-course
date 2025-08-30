@@ -1,18 +1,4 @@
-Tunnin 2 vinkit:  
-man man = manuaali
-komento --help = komennon avut  
-kaks kertaa tabulator niin näkee mitä mahdollisia komentoja on  
-tree = näyttää linuxin hakemistorakenteen  
-etc on tärkeä hakemisto, löytyy paljon configuraatiofileja. etc vaatii ROOT oikeudet eli täytyy käyttää sudo komentoa.  
-huom linuxissa jos poistat tai ylikirjoitat jotain, niin se on sitten tehty, eli ei ole palautusta niinkun Windowsissa. Eli tee mitä tiedät tekeväsi.  
-.. menee pykälän eteenpäin hakemistossa  
-cd = pääsee takas kotihakemistoon  
-Editorit esim: nano, micro, 
-uuden tiedoston luonti: nano uusi.txt  
-touch testihakemisto/alihakemisto/(filename) = uusi tiedosto absoluuttista polkua käyttämällä  
-
-
-update: 28.8.2025  
+update: 30.8.2025  
 # Tietokone ja käyttöjärjestelmä
 **GPU:** Nvidia RTX 2070  
 **Processor:** Intel Core i9-9900K 3.60 Ghz    
@@ -30,7 +16,8 @@ update: 28.8.2025
 **Aloitusaika**: 14:30  
 **Lopetusaika**: 16:40  
  
-Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h2 Komentaja pingviini (Karvinen 2025).  
+Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h2 Komentaja pingviini (Karvinen 2025). Harjoitus onnistui mielestäni hyvin ja sain kaikki tavoitteet suoritettua. Harjoitus suoritettiin kahden päivän aikana ja lähteinä hyödynnettiin pääasiassa Karvisen ja Heinosen ohjeita. Komennot kappaleeseen on koottu mielestäni hyödyllisiä komentoja. **Lisää vinkkejä komentorivin käyttöön** kerättiin tämän raportin edetessä.  
+Raportti käsittelee komentorivillä operointia, kuten ohjelmien asennuksia ja tiedon etsimistä. Raportissa tutustuttiin myös virtuaalikoneen ominaisuuksiin. Lokien analysointi ja Paletteron käyttäminen jäi pintaraapaisuksi tässä raportissa.  
 
 ## Komennot  
 Komentorivi on tosiaan kestänyt aikaa erittäin hyvin. Sitä käytettiin ennen Linuxin, Windowsin ja internetin aikaa ja sitä käytetään edelleen (Karvinen 2025). Komentorivi harjaantuneissa käsissä on erittäin nopeaa verrattuna esimerkiksi graafiseen käyttöliittymään. Komentorivi on myös kevyt raudalle, se ei vaadi suurta määrää tehoa pyöriäkseen. Tästä johtuen se on suosittu esimerkiksi servereiden käyttöön. Komentorivin avulla vaikeidenkin tehtävien tekeminen onnistuu muutamalla komennolla ja se on erittäin automaatio ystävällinen. (Walkme 2025)  
@@ -209,6 +196,8 @@ Tämä pluggin antaa "epätarkan" haun komennoista ja tekstisuodattimista, eli h
 Tämän jälkeen avasin micro-editorin komennolla `micro` ja koitin CTRL + P yhdistelmää avatakseni toiminnon, mutta se ei toiminut. Tämän jälkeen löysin Karvisen repisotoryn paletterosta, josta löysin ohjeen asentaa fzf:n. Käytin seuraavia komentoja: `sudo apt-get update` ja `sudo apt-get -y install fzf`. Tämän jälkeen avasin editorin uudestaan ja CTRL + p toimi ja avasi plugginnin onnistuneesti. (Karvinen palettero)  
 
 ![kuva47](./Pictures/kuva47.png)  
+
+Kokeilin paletteron set colour scheme ominaisuutta ja se toimi hyvin. En lähtenyt tässä kohtaa tutkimaan enempää ominaisuuksia.  
 
 
 
