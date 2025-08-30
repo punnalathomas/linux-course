@@ -58,7 +58,8 @@ Admin komennot. Kun halutaan antaa komentoja jotka vaikuttavat koko järjestelm�
 Lisää vinkkejä komentorivin käyttöön:  
 Näppäimmistön nuoli ylöspäin painettuna palauttaa edellisen komennon. Erityisen hyödyllinen kun on tehnyt kirjoitusvirheen ja haluaa korjata jonkin tietyn komennosta.  
 `clear` tyhjentää komentorivin tekstistä.  
-`sudo apt remove [ohjelma]` Poistaa ohjelman asennuksen  
+`sudo apt remove [ohjelma]` Poistaa ohjelman asennuksen 
+`head` voidaan tarkastella tiedoston alkua. Oletus on 10 ensimmäistä riviä. `head -n 15 tiedosto.txt` näyttäisi tiedosto.txt:n 15 ensimmäistä riviä. Voidaan käyttää kun halutaan tarkastella tiedostoa, mikä sisältää paljon tietoa.  
 
 
 
@@ -79,44 +80,71 @@ Aloitin komentoriviohjelmia etsimisen googlesta. Käytin promptia `commandline p
 Ohjelman asennuksen jälkeen piti asentaa alias kytkentä komennolla `eval $(thefuck --alias)`. Ohjeessa suositeltiin asentamaan se shell-profiiliin. Tämä on itselleni vielä vieras aihe, joten pitäydyin yksinkertaisessa versiossa (nvbn, thefuck).  
 
 Tämä ohjelma korjaa väärin kirjoitetut komennot. Esimerkiksi halusin siirtyä työpöydälle komennolla `cs Desktop/`, joka antoi virheen `bash: cs: command not found`. Nyt voin kirjoittaa komentoriville `fuck` ja se antaa ehdotuksen todennäköisestä komennosta mitä halusin käyttää, tämän jälkeen painan Entteriä ja oikea komento ajetaan.  
+
 ![kuva22](./Pictures/kuva22.png)  
 
 ## ncdu
 Tätä ohjelmaa voidaan käyttää levytilan tarkasteluun. Näyttää suoraan mitkä kansiot ja tiedostot vievät eniten tilaa. Pystyn poistamaan ohjelman kautta turhat hakemistot ja tiedostot. (Brock, W. 2024)  
+
 ![kuva23](./Pictures/kuva23.png)
+
 ![kuva24](./Pictures/kuva24.png)  
 
 ## cowsay
 Tämä ohjelma piirtää komentoriville lehmän, joka sanoo käyttäjän haluaman merkkijonon. Esimerkiksi ´cowsay hei maailma!` tulostaa seuraavanlaisen kuvan:  
+
 ![kuva25](./Pictures/kuva25.png)   
 
 ## FHS
 **/** Root directory. Siirryin root directoryyn komennolla `cd /` ja listasin tiedostot ja hakemistot komennolla `ls`. Tärkeitä kansioita ovat esimerkiksi bin/ (sisältää tärkeitä ohjelmia), etc/ (järjestelmän asetukset), home/ (käyttäjien kotihakemistot) ja var/ (lokit, paketinhallinnan välimuistit).  
+
 ![kuva26](./Pictures/kuva26.png)  
 
 **/home/** Kaikkien käyttäjien kotihakemistot. Itselläni näkyy vain kansio `thomas`. `ls -la` komennolla voidaan huomata myös omistajuus (thomas thomas).  
+
 ![kuva27](./Pictures/kuva27.png)  
 
 **/home/thomas/** Tämä on käyttäjän oma hakemisto. Täältä löytyy esimerkiksi käyttäjän omat hakemistot, kuten Desktop ja Documents. Hakemistossa näkyy myös itse tekemäni hei_maailma tiedosto. Documents kansio ei sisällä vielä tiedostoja.   
+
 ![kuva28](./Pictures/kuva28.png)  
+
 ![kuva29](./Pictures/kuva29.png)  
+
 ![kuva30](./Pictures/kuva30.png)  
-`cat hei_maailma` näytti mitä tiedosti pitää sisällään.  
+
+`cat hei_maailma` näytti mitä tiedosto pitää sisällään.  
+
 ![kuva31](./Pictures/kuva31.png)  
+
 Tästä näemme, että olen aiemmin päivittänyt järjestelmän pakettiluettelon.  
 
 **/etc/** Täältä löytyy järjestelmän konfiguraatiot ja asetukset.  
+
 ![kuva32](./Pictures/kuva32.png)  
+
 Kuvassa tulostettu hostname, tietoja käyttöjärjestelmästä, sekä käyttäjien perustiedot.  
+
 ![kuva33](./Pictures/kuva33.png)  
+
 ![kuva34](./Pictures/kuva34.png)  
 
+**/media/** Tätä hakemistoa käytetään esimerkiksi USB-tikun ja CD-aseman liittämiseen. Hakemistossa ei ole tiedostoja, koska laitteita ei ole liitetty. Cdrom näkyy `tree` -komennolla, mutta sisältö on tyhjä.  
 
+![kuva35](./Pictures/kuva35.png)  
 
+**/var/log/** Tästä hakemistosta löytyy järjestelmän lokit, eli tietoa ohjelmien ja käyttöjärjestelmän toiminnasta.  
 
+![kuva36](./Pictures/kuva36.png)  
 
+Tässä tarkastelen Debianin paketinhallinnan lokitiedostoa. Riveistä voidaan esimerkiksi lukea, päivämäärä ja aika, toiminto: install, paketti ja versio.  
 
+![kuva37](./Pictures/kuva37.png)  
 
+README-tiedoston tarkastelua.  
+
+![kuva38](./Pictures/kuva38.png)  
+
+(Heinonen 2025, Karvinen 2020/2009/2008)  
 
 ## Grep-komennon käyttö, sekä esimerkki Pipen käytöstä
 `grep` -komennon avulla voidaan etsiä esimerkiksi tiettyjä sanoja tekstistä. Esimerkiksi kun halutaan asentaa jokin ohjelma, voidaan ensin etsiä komennolla `apt-cache search [paketin nimi]` pakettitietoja. Käytin tätä Micro-editorin asennuksen etsimisessä. Pelkästään `apt-cache search micro` antoi erittäin suuren määrän paketteja komentoriville.  
@@ -127,10 +155,20 @@ Tässä hyödynnettiin `grep`:in lisäksi Pipea. Eli sen sijaan, että tulostan 
 
 ## Lähteet
 Brock, W. 2024. Disk usage with the ncdu Linux command. Katsottavissa: https://www.youtube.com/watch?v=Lt7QzoY7NiE. Katsottu: 28.8.2025  
+
 Heinonen, J. 2025. linux-27082925.md. johanna-test-repo. Luettavissa: https://github.com/johannaheinonen/johanna-test-repo/blob/main/linux-27082925.md. Luettu: 28.8.2025   
+
 Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy. Luettavissa: https://terokarvinen.com/linux-palvelimet/. Luettu: 28.8.2025   
+
 Karvinen, T. 2020. Command Line Basics Revisited. Luettavissa: https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited. Luettu: 28.8.2025  
+
+Karvinen, T. 2009. Command Line Basics. Luettavissa: https://terokarvinen.com/2009/command-line-basics-4/. Luettu: 30.8.2025  
+
+Karvinen, T. 2008. Commands for Admin. Luettavissa: https://terokarvinen.com/2008/commands-for-admin-4/. Luettu: 30.8.2025  
+
 nvbn. thefuck. repisotory. Luettavissa: https://github.com/nvbn/thefuck. Luettu: 28.8.2025  
+
 WalkMeTeam. 2025. Graphical user interface (GUI) vs command line interface (CLI). Blogi-kirjoitus. Luettavissa: https://www.walkme.com/blog/graphical-user-interface-vs-command-line-interface/. Luettu: 28.8.2025  
+
 Heinonen, J. 2025. Linux-palvelimet oppitunti. Kuunneltu: 27.8.2025  
 
