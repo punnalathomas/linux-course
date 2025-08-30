@@ -26,8 +26,8 @@ update: 28.8.2025
 **Aloitusaika**: 16:26  
 **Lopetusaika**: 21:00  
 
-**2.8.25**  
-**Aloitusaika**: 
+**30.8.25**  
+**Aloitusaika**: 14:30  
 **Lopetusaika**: 
  
 Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h2 Komentaja pingviini (Karvinen 2025).  
@@ -55,12 +55,13 @@ Tämänhetkinen suosikki ominaisuuteni on `tree`n lisäksi `Tab`:n eli tabulaatt
 
 Admin komennot. Kun halutaan antaa komentoja jotka vaikuttavat koko järjestelmään, täytyy antaa `$ sudo` -komento. Tämä etuliite antaa rajoittamattomat oikeudet. Tätä voidaan hyödyntää esimerkiksi ohjelmistojen asentamiseen ja poistamiseen. (Karvinen 2020) Heinosen mukaan jos joudutaan antamaan `sudo` -komento, tulisi miettiä tarkkaan mitä on tekemässä. Linux tekee juuri niinkuin sitä käsketään ja esimerkiksi poistettujen tiedostojen palautus muuttuu mahdottomaksi (27.8. Linux-palvelimet oppitunti).  
 
-Lisää vinkkejä komentorivin käyttöön:  
+### Lisää vinkkejä komentorivin käyttöön
+
 Näppäimmistön nuoli ylöspäin painettuna palauttaa edellisen komennon. Erityisen hyödyllinen kun on tehnyt kirjoitusvirheen ja haluaa korjata jonkin tietyn komennosta.  
 `clear` tyhjentää komentorivin tekstistä.  
 `sudo apt remove [ohjelma]` Poistaa ohjelman asennuksen 
 `head` voidaan tarkastella tiedoston alkua. Oletus on 10 ensimmäistä riviä. `head -n 15 tiedosto.txt` näyttäisi tiedosto.txt:n 15 ensimmäistä riviä. Voidaan käyttää kun halutaan tarkastella tiedostoa, mikä sisältää paljon tietoa.  
-
+`CTRL + z` lopettaa komennon / ohjelman ajamisen, jos jää jumiin.  
 
 
 ## Micro-editorin asennus
@@ -149,16 +150,80 @@ README-tiedoston tarkastelua.
 ## Grep-komennon käyttö, sekä esimerkki Pipen käytöstä
 `grep` -komennon avulla voidaan etsiä esimerkiksi tiettyjä sanoja tekstistä. Esimerkiksi kun halutaan asentaa jokin ohjelma, voidaan ensin etsiä komennolla `apt-cache search [paketin nimi]` pakettitietoja. Käytin tätä Micro-editorin asennuksen etsimisessä. Pelkästään `apt-cache search micro` antoi erittäin suuren määrän paketteja komentoriville.  
 ![kuva17](./Pictures/kuva17.png)  
+
 Seuraavaksi etsitään tekstistä kaikki mitkä alkavat sanalla micro. `^` -merkki osoittaa millä sanan kuuluu alkaa, eli voidaan käyttää komentoa `apt-cache search micro | grep ^micro`. Jolloin tulos on jo paljon luettavampi.  
+
 ![kuva18](./Pictures/kuva18.png)  
+
 Tässä hyödynnettiin `grep`:in lisäksi Pipea. Eli sen sijaan, että tulostan omalle ruudulleni kaiken, annan sen grep-komennolle, joka suodattaa haluamani lopputuloksen. (Heinonen 2025)  
+
+Hyödynsin myös `grep` -komennon ja pipen yhdistelmää etsiessäni dpkg.logista kaikki rivit missä mainitaan sana "install", käytin pipea rivien laskemiseen, jolloin sain vastaukseksi monellako rivillä mainitaan sana "install".  
+
+![kuva39](./Pictures/kuva39.png)  
+
+(man7 2019)  
+## Rauta
+
+Aloitin raudan analysoinnin käyttämällä Karvisen ohjeissa mainittua komentoa `sudo lshw -short -sanitize`. Tämä aiheutti virheen command not found. Oletan, että lshw:n asennus korjaa tämän asian.  
+
+![kuva40](./Pictures/kuva40.png)  
+
+Ennen `lshw`:n asennusta käytin komentoa `sudo apt-get update`, joka päivittää tarjolla olevat paketit. Tämän jälkeen hain lshwn paketin komennolla `sudo apt install lshw`. Hyödynsin näppäimmistön tabulaattorin tuplaklikkaamista, jolloin komentorivi tarjosi vaihtoehtoja komennon rakentamiseen.  
+
+![kuva41](./Pictures/kuva41.png)  
+
+### Koneen rauta  
+![kuva42](./Pictures/kuva42.png)  
+
+Heti aluksi voidaan huomata, että kone pyörii virtuaalikoneessa, eikä fyysisellä raudalla (system: virtualbox / bus: virtualbox).  
+Virtuaalikone ottaa yhden ytimen fyysisen koneeni prosessorista. Tallennuksen ja levyjen puolesta, virtuaalikoneessa näkyy CD-ROM-asema ja 53 GB VBOX HARDDISK. Virtuaalikonetta asentaessa asetin kiintolevyn kooksi 50 GB, joten en ole varma mistä extra 3 GB on ilmestynyt.  
+Näytönohjaimena toimii virtuaalinen SVGA II Adapter.  
+Virtuaalisena verkkokorttina on 82540EM Gigabit Ethernet Controller.  
+Ääikorttina virtuaalinen AC´97 Audio Controller.  
+
+4 GB RAM-muistia, on hyvä määrä testikoneelle, mutta rajoittaisi raskaampaa käyttöä koneella. Raudan listauksesta huomaa myös, kuinka koneen virtuaalikovalevy on jaettu kolmeen osaan (Windows FAT volue, EXT4 volume, Linux swap volume). Mielestäni asetin virtuaalikoneen asennuksessa kaksi ydintä sen käyttöön, mutta listauksessa näkyy vain yksi ydin käytössä. Virtuaalikoneen kokoonpanosta näkee, että se on tarkoitettu harjoittelu ja testikäyttöön. Pelaamiseen ja muihin raskaisiin graafisiin ohjelmiin, se ei olisi optimaalinen.  
+
+## Lokit
+
+Aloitin ohjeista löytyvällä komennolla `journalctl -f`. Koska ajoin komennon ilman sudo oikeuksia, näen vain omat lokiviestini. Jotta pystyn näkemään koko järjestelmän viestit tarvitsen komennon eteen `sudo`.  
+Lokista voimme esimerkiksi huomata, että olen asentanut lshw:n Aug 30 15:28:20, sekä komennon mitä käytin siinä. En aluksi huomannut kuinka pääsen poistumaan lokista, mutta näppäinyhdistelmä CRTL + c sulki sen.  
+
+![kuva43](./Pictures/kuva43.png)  
+
+Seuraavaksi käytin komentoa ´sudo journalctl -f`, joka näytti koko järjestelmän lokit. 
+
+![kuva44](./Pictures/kuva44.png)  
+![kuva45](./Pictures/kuva45.png)  
+
+Tässä näimme taas itseni antaman komennon. Tällä kertaa sudo oikeuksilla.  
+(Karvinen 2025)  
+
+## Micro-editor pluggin
+
+Googletin aluksi `how to install plugins micro editor` ja löysin micro-editorin github sivun. Seuraavaksi etsin kohdan palettero 0.0.5, jota klikkaamalla löysin komennon `micro -plugin install palettero`. Syötin tämän komentoriville ja sain paletteron asennettua. (Micro-editor.github.io)  
+
+![kuva46](./Pictures/kuva46.png)  
+
+Tämä pluggin antaa "epätarkan" haun komennoista ja tekstisuodattimista, eli hakusanaa ei tarvitse kirjoittaa täysin oikein. Huomasin myös että tämä pluggin on Tero Karvisen tekemä (Karvinen).  
+
+Tämän jälkeen avasin micro-editorin komennolla `micro` ja koitin CTRL + P yhdistelmää avatakseni toiminnon, mutta se ei toiminut. Tämän jälkeen löysin Karvisen repisotoryn paletterosta, josta löysin ohjeen asentaa fzf:n. Käytin seuraavia komentoja: `sudo apt-get update` ja `sudo apt-get -y install fzf`. Tämän jälkeen avasin editorin uudestaan ja CTRL + p toimi ja avasi plugginnin onnistuneesti. (Karvinen palettero)  
+
+![kuva47](./Pictures/kuva47.png)  
+
+
 
 ## Lähteet
 Brock, W. 2024. Disk usage with the ncdu Linux command. Katsottavissa: https://www.youtube.com/watch?v=Lt7QzoY7NiE. Katsottu: 28.8.2025  
 
 Heinonen, J. 2025. linux-27082925.md. johanna-test-repo. Luettavissa: https://github.com/johannaheinonen/johanna-test-repo/blob/main/linux-27082925.md. Luettu: 28.8.2025   
 
+Heinonen, J. 2025. Linux-palvelimet oppitunti. Kuunneltu: 27.8.2025  
+
+Karvinen, T. micro-editor. Luettavissa: https://terokarvinen.com/tags/micro-editor/. Luettu: 30.8.2025  
+
 Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy. Luettavissa: https://terokarvinen.com/linux-palvelimet/. Luettu: 28.8.2025   
+
+Karvinen, T. 2020. palettero. Repisotory. Luettavissa: https://github.com/terokarvinen/palettero. Luettu: 30.8.2025  
 
 Karvinen, T. 2020. Command Line Basics Revisited. Luettavissa: https://terokarvinen.com/2020/command-line-basics-revisited/?fromSearch=command%20line%20basics%20revisited. Luettu: 28.8.2025  
 
@@ -166,9 +231,13 @@ Karvinen, T. 2009. Command Line Basics. Luettavissa: https://terokarvinen.com/20
 
 Karvinen, T. 2008. Commands for Admin. Luettavissa: https://terokarvinen.com/2008/commands-for-admin-4/. Luettu: 30.8.2025  
 
+man7. 2019. grep(1) — Linux manual page. Luettavissa: https://man7.org/linux/man-pages/man1/grep.1.html. Luettu: 30.8.2025  
+
+Micro-editor. Plugins. Luettavissa: https://micro-editor.github.io/plugins.html. Luettu: 30.8.2025  
+
 nvbn. thefuck. repisotory. Luettavissa: https://github.com/nvbn/thefuck. Luettu: 28.8.2025  
 
 WalkMeTeam. 2025. Graphical user interface (GUI) vs command line interface (CLI). Blogi-kirjoitus. Luettavissa: https://www.walkme.com/blog/graphical-user-interface-vs-command-line-interface/. Luettu: 28.8.2025  
 
-Heinonen, J. 2025. Linux-palvelimet oppitunti. Kuunneltu: 27.8.2025  
+
 
