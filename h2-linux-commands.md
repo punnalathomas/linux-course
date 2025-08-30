@@ -144,7 +144,7 @@ Seuraavaksi etsitään tekstistä kaikki mitkä alkavat sanalla micro. `^` -merk
 
 Tässä hyödynnettiin `grep`:in lisäksi Pipea. Eli sen sijaan, että tulostan omalle ruudulleni kaiken, annan sen grep-komennolle, joka suodattaa haluamani lopputuloksen. (Heinonen 2025)  
 
-Hyödynsin myös `grep` -komennon ja pipen yhdistelmää etsiessäni dpkg.logista kaikki rivit missä mainitaan sana "install", käytin pipea rivien laskemiseen, jolloin sain vastaukseksi monellako rivillä mainitaan sana "install".  
+Hyödynsin myös `grep` -komennon ja pipen yhdistelmää laskiessani monellako rivillä dpkg.logista mainitaan sana "install". Grep-komento etsii rivit ja pipe | laski lukumäärän.   
 
 ![kuva39](./Pictures/kuva39.png)  
 
