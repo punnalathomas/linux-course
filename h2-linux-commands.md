@@ -46,7 +46,7 @@ Admin komennot. Kun halutaan antaa komentoja jotka vaikuttavat koko järjestelm�
 
 Näppäimmistön nuoli ylöspäin painettuna palauttaa edellisen komennon. Erityisen hyödyllinen kun on tehnyt kirjoitusvirheen ja haluaa korjata jonkin tietyn komennosta.  
 `clear` tyhjentää komentorivin tekstistä.  
-`sudo apt remove [ohjelma]` Poistaa ohjelman asennuksen 
+`sudo apt remove [ohjelma]` Poistaa ohjelman asennuksen  
 `head` voidaan tarkastella tiedoston alkua. Oletus on 10 ensimmäistä riviä. `head -n 15 tiedosto.txt` näyttäisi tiedosto.txt:n 15 ensimmäistä riviä. Voidaan käyttää kun halutaan tarkastella tiedostoa, mikä sisältää paljon tietoa.  
 `CTRL + z` lopettaa komennon / ohjelman ajamisen, jos jää jumiin.  
 
