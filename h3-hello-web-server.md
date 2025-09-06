@@ -49,7 +49,17 @@ On erittäin suositeltavaa määrittää Servername aina jokaiselle virtuaalipal
 
 ## Tehtävät
 
+Tehtävien tekeminen aloitetaan normaalisti avaamalla virtuaalikone, kirjautumalla sisään ja avaamalla Terminal-sovellus. Apachen weppipalvelin oli asennettu oppitunnilla, joten asennusta ei käydä tässä raportissa sen enempää läpi. Raporttia varten testaan kuitenkin onko Apache statuksen komennolla `sudo systemctl status apache2`, kuten voimme huomata Apache2 on päällä ja enabloitu. Voimme huomata lokiviesteistä varoituksen: Sep 06 15:55:05 debian apachectl[1073]: AH00558: apache2: Could not reliably determine the server's fully qualified domain na>, eli ServerNamea ei ole asetettu. En lähde korjaamaan asiaa tässä kohtaa. (Heinonen 2025)    
 
+![kuva48](./Pictures/kuva48.png)  
+
+Seuraavaksi testasin että weppipalvelin vastaa localhost-osoitteesta. Annoin komennon `curl localhost` ja komentoriville ilmestyi html muodossa oleva esimerkkisivusto. (Karvinen 2018)  
+
+![kuva49](./Pictures/kuva49.png)  
+
+Seuraavaksi oli tarkoitus etsiä ja analysoida lokeista rivit, jotka syntyvät kun omalta palvelimelta ladataan sivu. Heinosen ohjeista löysin komennon `sudo tail -f /var/log/apache2/access.log`. Komennon jälkeen loki-tekstit ilmestyivät komentoriville, käytin näppäimmistön ENTER näppäintä hyödyksi, jotta sain hieman tyhjää tilaa aikaisempien lokitekstien ja uuden kohta ilmestyvän tekstin väliin. Tämän jälkeen avasin uuden Terminal sovelluksen ja kirjoitin komennon `curl localhost`. Komennon jälkeen huomasin että alkuperäiseen lokitekstiin ilmestyi uusi log entry. (Heinonen 2025)  
+
+![kuva50](./Pictures/kuva50.png)  
 
 
 
