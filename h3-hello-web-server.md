@@ -12,6 +12,63 @@ usean webbisivun ajaminen saman ip:n alla:
 /etc/hosts fileen täytyy käydä laittamassa webbisivu esim 127.0.0.1 site2.com  
 näin saadaan kerrottua nimipalvelulle, että minkä ip:n takaa löytyy webbisivu kirjoitettuna selkokielisenä  
 
+update: 6.9.2025  
+# Tietokone ja käyttöjärjestelmä
+**GPU:** Nvidia RTX 2070  
+**Processor:** Intel Core i9-9900K 3.60 Ghz    
+**RAM:** 16.0 GB  
+**OS:**  Windows 11 Home  
+
+# Hello Web Server
+
+## Tiivistelmä
+**6.9.25**  
+**Aloitusaika**: 16:48  
+**Lopetusaika**:   
+  
+Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h3 Hello Web Server (Karvinen 2025).  
+
+## Name-based Virtual Hosts
+
+Apache tukee useaa domain-nimeä yhden IP-osoitteen alla (Karvinen 2018). Tämä tapa säästää IP-osoitteita, koska useita eri host-nimiä voidaan palvella saman osoitteen alla. Tämä on toteutettu sisällyttämällä HTTP-otsakkeeseen hostname. (Apache)  
+Apache Web Server asennetaan antamalla komento `sudo apt-get -y install apache2`, voimme myös muokata default web sitea esimerkiksi antamalla seuraava komento `echo "<tähän voi kirjoittaa mitä haluaa sivulla näkyvän>"|sudo tee /var/www/html/index.html`. Saadaksemme uusi nimi-pohjainen virtuaalipalvelin toimintaan, on sille annettava määrityksiä. Luodaan aluksi uusi konfiguraatio tiedosto komennolla `sudoedit /etc/apache2/sites-available/pyora.example.com.conf` ja annetaan sille seuraavanlainen sisältö:
+```
+<VirtualHost *:80>
+ ServerName pyora.example.com
+ ServerAlias www.pyora.example.com
+ DocumentRoot /home/xubuntu/publicsites/pyora.example.com
+ <Directory /home/xubuntu/publicsites/pyora.example.com>
+   Require all granted
+ </Directory>
+</VirtualHost>
+```
+Sivun osoitteeksi tulee siis pyora.example.com, jolla on myös www. alkuinen alias, eli vaihtoehtoinen nimi osoitteelle. DocumentRoot kertoo kansion, mistä sivuston tiedot löydetään. <Directory> antaa lukuoikeuden kaikille sivuston kansioon. (Karvinen 2018)  
+Tämän jälkeen enabloidaan sivusto antamalla komento `sudo a2ensite pyora.example.com` ja uudelleen ladataan Apachen konfiguraatio tiedostot ilman palvelun uudelleen käynnistystä komennolla `sudo systemctl reload apache2` (Heinonen 2025).  
+Tämän jälkeen voimme luoda uuden web-sivun normaalina käyttäjänä, käyttäjän kotihakemistoon, `mkdir -p /home/xubuntu/publicsites/pyora.example.com/` ja index.html tiedosto komennolla `echo pyora > /home/xubuntu/publicsites/pyora.example.com/index.html`. Web-sivu sisältäisi tällä hetkellä tiedon "pyora". Tämän jälkeen voimme testata sivua komentorivillä antamalla curl komennon `curl pyora.example.com`. Koska emme ole vielä vuokranneet nimeä palveluntarjoajalta, voimme simuloida nimipalvelua lokaalisti. Teemme sen muokkaamalla /etc/hosts tiedostoon IP-osoitteen joka vastaa pyora.example.com nimeä. (Karvinen 2018)  
+On erittäin suositeltavaa määrittää Servername aina jokaiselle virtuaalipalvelimelle, muuten Apache joutuu käyttämään järjestelmän isäntänimeä (FQDN). Jos yksikään ServerName tai Alias ei vastaa pyyntöön, palvelin käyttää ensimmäistä konfiguraatiossa määritettyä virtuaalipalvelinta IP:lle ja portille. (Apache)  
+
+## Tehtävät
+
+
+
+
+
+
+
+## Lähteet
+
+Apache. Name-based Virtual Host Support. Luettavissa: https://httpd.apache.org/docs/2.4/vhosts/name-based.html. Luettu: 6.9.2025  
+
+Karvinen, T. 2025. Linux-palvelimet. Luettavissa: https://terokarvinen.com/linux-palvelimet/. Luettu: 6.9.2025  
+
+Karvinen, T. 2018. Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address. Luettavissa: https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/. Luettu: 6.9.2025  
+
+Heinonen, J. 2025. linux-03092025.md. Luettavissa: https://github.com/johannaheinonen/johanna-test-repo/blob/main/linux-03092025.md. Luettu: 6.9.2025  
+
+
+
+
+
 
 
 
