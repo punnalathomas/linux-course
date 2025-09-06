@@ -14,6 +14,11 @@ update: 6.9.2025
   
 Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h3 Hello Web Server (Karvinen 2025). Harjoitus sujui hyvin. Onnistuin mielestäni kaikissa harjoituksen tavoitteissa. Vapaaehtoisessa tehtävässä en ole varma teinkö halutulla tavalla, mutta nyt linuxini vastaa kahdesta eri nimestä, jotka ovat saman IP-osoitteen takana. Jäin hieman jumiin hattu.example.comin saamiseksi näkymään localhost kutsussa. Onnistuin kuitenkin ratkomaan ongelman pienen mietinnän jälkeen.  
 Tämä raportti on hyödyntänyt pääasiassa Heinosen ja Karvisen ohjeita.  
+Jäin miettimään kohtaa hattu.example.com localhostina, joten tein seuraavat muutokset:
+1. kävin ottamassa 000-default.conf tiedoston pois sites-enablet kansiosta
+2. poistin hattu.example.com.conf tiedostosta localhost aliaksen
+3. reloadasin Apachen
+Näillä korjauksilla hattu vastaa localhostiin ilman aliaksen käyttöä. Jostain syystä Firefox näyttää edelleen localhostina Apachen default sivun, vaikka curl localhost näyttää hattu.example.com. Tätä täytyy kysyä seuraavalla oppitunnilla.  
 
 ## Name-based Virtual Hosts
 
