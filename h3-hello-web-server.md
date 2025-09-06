@@ -61,7 +61,18 @@ Seuraavaksi oli tarkoitus etsiä ja analysoida lokeista rivit, jotka syntyvät k
 
 ![kuva50](./Pictures/kuva50.png)  
 
+## lokin analyysi
+Analyysiin on käytetty hyödyksi David Girvinin (2025) blogi-tekstiä "Understanding the Apache access log: how to view, locate, and analyze".  
+::1 - - [06/Sep/2025:17:07:16 +0300] "GET / HTTP/1.1" 200 10981 "-" "curl/8.14.1"  
 
+1. ::1 = IP-osoite joka teki pyynnön, eli tässä tilanteessa se on loopback-osoite, joka tarkoittaa pyynnön tulleen itseltään
+2. [06/Sep/2025:17:07:16 +0300] = päivämäärä ja aika kun pyyntö tehtiin
+3. GET = pyynnön metodi, eli resurssi haetaan
+4. HTTP/1.1 = HTTP-protokollan versio. Tässä tilanteessa 1.1
+5. 200 = HTTP status code. Tässä tilanteessa onnistunut vastaus (MDN 2025)
+6. 10981 = palvelimen palauttaman vastauksen koko
+7. "-" = mistä sivulta käyttäjä tuli. Tässä kohtaa ei ole mitään, koska pyyntö tuli curlilla
+8. curl/8.14.1 = pyyntö tehtiin curl-työkalulla, jonka versio on 8.14.1
 
 
 
@@ -69,9 +80,13 @@ Seuraavaksi oli tarkoitus etsiä ja analysoida lokeista rivit, jotka syntyvät k
 
 Apache. Name-based Virtual Host Support. Luettavissa: https://httpd.apache.org/docs/2.4/vhosts/name-based.html. Luettu: 6.9.2025  
 
+Girvin, D. 2025. Understanding the Apache access log: how to view, locate, and analyze. Sumo logic. Luettavissa: https://www.sumologic.com/blog/apache-access-log. Luettu: 6.9.2025  
+
 Karvinen, T. 2025. Linux-palvelimet. Luettavissa: https://terokarvinen.com/linux-palvelimet/. Luettu: 6.9.2025  
 
 Karvinen, T. 2018. Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address. Luettavissa: https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/. Luettu: 6.9.2025  
+
+MDN. 2025. HTTP response status codes. Luettavissa: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status. Luettu: 6.9.2025  
 
 Heinonen, J. 2025. linux-03092025.md. Luettavissa: https://github.com/johannaheinonen/johanna-test-repo/blob/main/linux-03092025.md. Luettu: 6.9.2025  
 
