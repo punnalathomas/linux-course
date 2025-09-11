@@ -11,7 +11,7 @@ update: 6.9.2025
 **Template:** Debian GNU/Linux 13 (Trixie)  
 **CPU:** 1 core  
 **RAM:** 1 GB  
-**Storage:** 10 GB
+**Storage:** 10 GB  
 **Service provider:** UpCloud  
 
 # Hello World
