@@ -211,16 +211,15 @@ Seuraavaksi komennot järjestyksessä `cd public-sites/punnala.example.com/` -> 
 Otin default-sivun pois päältä komennoilla `sudo a2dissite 000-default.conf` ja `
 sudo systemctl reload apache2`. Tämän jälkeen oma sivu päälle komennolla `sudo a2ensite punnala.example.com.conf` ja `sudo systemctl reload apache2`.  
 
+Yritin avata sivua selaimessa ja sain seuraavanlaisen virheilmoituksen.  
 
+![kuva83](./Pictures/kuva83.png)  
 
+Muistin, että permissionit täytyy laittaa kuntoon. Apachen täytyy päästä käsiksi weppisivulleni, eli korjataan se seuraavaksi. Tässä kohtaa käytin hyödyksi Heinosen (2025) ohjetta.  
 
+Virhe löytyi `punnala.example.com.conf`-tiedostosta. Olin määrittänyt väärän polun sinne, kun korjasin sen, pääsin lokaalisti weppisivulleni. Oikea polku oli `/home/thomas/public-sites/punnala.example.com`  
 
-
-
-
-
-
-
+![kuva84](./Pictures/kuva84.png)  
 
 
 
@@ -231,9 +230,13 @@ sudo systemctl reload apache2`. Tämän jälkeen oma sivu päälle komennolla `s
 
 ## Lähteet
 
+Heinonen, J. 2025. linux-03092025.md. Luettavissa: https://github.com/johannaheinonen/johanna-test-repo/blob/main/linux-03092025.md. Luettu: 11.9.2025  
+
 Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy. Luettavissa: https://terokarvinen.com/linux-palvelimet/. Luettu: 11.9.2025  
 
 Karvinen, T. 2017. First Steps on a New Virtual Private Server – an Example on DigitalOcean and Ubuntu 16.04 LTS. Luettavissa: https://terokarvinen.com/2017/first-steps-on-a-new-virtual-private-server-an-example-on-digitalocean/. Luettu: 11.9.2025  
+
+Karvinen, T. 2012. Short HTML5 page. Luettavissa: https://terokarvinen.com/2012/short-html5-page/. Luettu: 11.9.2025
 
 Lehto, S. 2022. Teoriasta käytäntöön pilvipalvelimen avulla (h4). Luettavissa: https://susannalehto.fi/2022/teoriasta-kaytantoon-pilvipalvelimen-avulla-h4/. Luettu: 11.9.2025  
 
