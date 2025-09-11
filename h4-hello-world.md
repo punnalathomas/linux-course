@@ -1,10 +1,18 @@
 update: 6.9.2025  
 
-# Tietokone ja käyttöjärjestelmä
+# Lokaali tietokone ja käyttöjärjestelmä
 **GPU:** Nvidia RTX 2070  
 **Processor:** Intel Core i9-9900K 3.60 Ghz    
 **RAM:** 16.0 GB  
 **OS:**  Windows 11 Home  
+
+# Virtuaali palvelin
+
+**Template:** Debian GNU/Linux 13 (Trixie)  
+**CPU:** 1 core  
+**RAM:** 1 GB  
+**Storage:** 10 GB
+**Service provider:** UpCloud  
 
 # Hello World
 
