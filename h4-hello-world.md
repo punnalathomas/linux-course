@@ -1,8 +1,5 @@
-Tunnin muistiinpanot:  
-
-
-SSHN teko: ssh-keygen -> hyväksytään tallennus paikka -> ei passphrasee ja enter -> cd .ssh/ -> ls -> siellä on tiedosto -> catilla voi lukee, public ookoo näyttää salanen ei ikinä -> 
 update: 6.9.2025  
+
 # Tietokone ja käyttöjärjestelmä
 **GPU:** Nvidia RTX 2070  
 **Processor:** Intel Core i9-9900K 3.60 Ghz    
@@ -14,14 +11,15 @@ update: 6.9.2025
 ## Tiivistelmä
 **11.9.25**  
 **Aloitusaika**: 15:00  
-**Lopetusaika**:    
+**Lopetusaika**: 18:00   
   
-Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h4 Maailma kuulee (Karvinen 2025). Olin tehnyt kaikki tarvittavat asennukset jo oppitunnin aikana. Avasin siis uuden serverin **UpCloudista**, jotta tässä raportissa olisi järkevä sisältö. Tämä raportti on kirjoitettu erityisesti itselleni voidakseni palata aiheen pariin, kun toimenpiteet eivät ole muistissa.  
+Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h4 Maailma kuulee (Karvinen 2025). Olin tehnyt kaikki tarvittavat asennukset jo oppitunnin aikana. Avasin siis uuden serverin **UpCloudista**, jotta tässä raportissa olisi järkevä sisältö. Tämä raportti on kirjoitettu erityisesti itselleni voidakseni palata aiheen pariin, kun toimenpiteet eivät ole tuoreessa muistissa.  
 
 Tätä raporttia lukiessa on hyvä huomioida, että UpCloudin käyttöliittymä saattaa muuttua aikaajoin, jolloin kaikki ohjeet eivät ole täsmällisiä, juuri lukijan kohdalla, perusidea kuitenkin säilyy.  
 
-Tämän raportin aikana asennettu palvelin oli yllättävän suoraviivaista tehdä. Käytin tässä enemmän Karvisen ohjeiden komentoja hyödyksi. Tunnilla säädimme samoja asetuksia tiedostoista.  
+Tämän raportin aikana asennettu palvelin oli yllättävän suoraviivaista tehdä. Käytin tässä enemmän Karvisen (2017) ohjeiden komentoja hyödyksi. Tunnilla säädimme samoja asetuksia tiedostoista. Vaihdoin takaisin tunnilla tehtyyn palvelimeen kohdassa **name based virtual host** ja poistin tässä raportissa asennetun palvelimen.  
 
+Onnistuin mielestäni kaikissa tehtävän tavoitteissa hyvin. Oli hyvä päätös rakentaa palvelin ilman suoraviivaista ohjausta, kuten Karvinen (2025) oppitunnilla mainitsikin, nämä asiat oppii parhaiten toistamalla tekemistä.  
 
 
 ## Pois pöytälaatikosta
@@ -29,7 +27,7 @@ Tämän raportin aikana asennettu palvelin oli yllättävän suoraviivaista tehd
 **Pilvipalvelimen vuokraus ja asennus**:  
 Pilvipalvelun vuokraamiseen on monia eri palveluntarjoajia. Jokainen, joka aikoo vuokrata tämänkaltaisen palvelun tuleekin harkita tarkkaan mihin käyttöön tarvitsee palvelua. Palvelua valittaessa on hyvä miettiä myös millaisella budjetilla haluaa tehdä toimintansa. Ilmaisia palveluita löytyy, mutta palvelun sisältö jää yleensä suppeaksi. (Lehto 2022)  
 
-Pilvipalvelinta vuokrattaessa tarvitaan rekisteröityminen palveluun, sekä luotto- tai debitkortti maksuja varten. Rekisteröitymisen jälkeen voi käyttäjä aloittaa palvelimen asennuksen. Asennus on tehty yksinkertaiseksi ja käyttäjä pystyy vaikuttamaan esimerkiksi käytettävään käyttöjärjestelmään, tallenustilaan, palvelun sijaintiin, varmuuskopiointiin, sekä kirjautumis tapaan. (Lehto 2022)  
+Pilvipalvelinta vuokrattaessa käyttäjän tarvitsee rekisteröityä palveluun, sekä maksuja varten luotto- tai debitkorttin. Rekisteröitymisen jälkeen voi käyttäjä aloittaa palvelimen asennuksen. Asennus on tehty yksinkertaiseksi ja käyttäjä pystyy vaikuttamaan esimerkiksi käytettävään käyttöjärjestelmään, tallenustilaan, palvelun sijaintiin, varmuuskopiointiin, sekä kirjautumistapaan. (Lehto 2022)  
 
 **Palvelin suojaan palomuurilla**:  
 Yhteys palvelimeen tulee tehdä SSH-yhteyden avulla, joka on huomattavasti luotettavampi kuin TelNet-yhteys. Kun palvelimelle on päästy sisään ensimmäisen kerran tulee käyttäjän hakea päivitykset komennolla `sudo apt-get update`. Tämän jälkeen on hyvä asentaa palomuuri komennolla `sudo apt-get install ufw` ja tehdä "reikä" palomuuriin SSH-yhteydelle komennolla `sudo ufw allow 22/tcp`. Tämän jälkeen palomuuri voidaan laittaa päälle komennolla `sudo ufw enable`. (Lehto 2022)  
