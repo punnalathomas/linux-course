@@ -20,6 +20,9 @@ Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 a
 
 Tätä raporttia lukiessa on hyvä huomioida, että UpCloudin käyttöliittymä saattaa muuttua aikaajoin, jolloin kaikki ohjeet eivät ole täsmällisiä, juuri lukijan kohdalla, perusidea kuitenkin säilyy.  
 
+Tämän raportin aikana asennettu palvelin oli yllättävän suoraviivaista tehdä. Käytin tässä enemmän Karvisen ohjeiden komentoja hyödyksi. Tunnilla säädimme samoja asetuksia tiedostoista.  
+
+
 
 ## Pois pöytälaatikosta
 
@@ -117,7 +120,7 @@ sudo ufw enable
 ```
 Komentorivi kertoo, että palomuuri aktivoituu ja menee päälle systeemin uudelleen käynnistyksen yhteydessä. (Lehto 2022)  
 
-Komennolla `ufw status verbose` saamme näkyviin, mitä sääntöjä palomuurille on asetettu.  
+Komennolla `sudo ufw status verbose` saamme näkyviin, mitä sääntöjä palomuurille on asetettu.  
 
 ![kuva71](./Pictures/kuva71.png)  
 
@@ -139,13 +142,50 @@ Seuraavaksi testasin, että pystyn kirjautumaan uudella käyttäjällä sisään
 
 ### Rootin sulkeminen
 
-Suljetaan root käyttäjän sisäänkirjautumis mahdollisuus tietoturvan vuoksi. Tehdään tämä käyttäjän thomas terminaalissa komennoilla `sudo usermod --lock root` ja `sudo mv -nv /root/.ssh /root/DISABLED-ssh/`  
+Suljetaan root käyttäjän sisäänkirjautumis mahdollisuus tietoturvan vuoksi. Tässä kohtaa on hyvä varmistaa, että kirjautuminen käyttäjänä thomas on mahdollista, jotta emme sulje itseämme vahingossa ulos palvelimelta.  
+
+Tehdään tämä käyttäjän thomas terminaalissa komennoilla `sudo usermod --lock root` ja `sudo mv -nv /root/.ssh /root/DISABLED-ssh/`  
 
 ![kuva75](./Pictures/kuva75.png)  
 
 Kokeillaan kirjautumista roottina ja huomataan, että ei onnistu.  
 
 ![kuva76](./Pictures/kuva76.png)  
+
+Kävin vielä laittamassa /etc/ssh/sshd_config tiedostosta **Permit root log in** kohdan **no**  
+
+#### Ohjelmien asennus
+
+Aloitin kirjautumalla käyttäjällä thomas virtuaaliselle palvelimelleni. Ajoin komennot järjestyksessä:  
+1. `sudo apt-get update`
+2. `sudo apt-get dist-upgrade`
+3. `sudo systemctl reboot`
+(Karvinen 2025)
+
+Asensin Karvisen (2025) ohjeiden mukaan muutaman ohjelman komennolla `sudo apt-get -y install micro bash-completion openssh-client wget curl ufw`  
+
+Tämän jälkeen asensin Apache-webbipalvelimen komennolla `sudo apt-get install apache2`, asennuksen aikana vastataan kysymykseen `y`. Hauska nippelitieto tästä Y/n kysymyksestä, se kumpi kirjain on kirjoitettu isolla on niin sanottu default valinta, eli jos painaa vain entteriä, niin tämä valinta otetaan.  
+
+![kuva77](./Pictures/kuva77.png)  
+
+Tässä kohtaa voitaisiin tehdä reikä palomuuriin http yhteydelle, mutta hoidin sen jo palomuurin asentamisen yhteydessä. Komento `curl localhost` näyttää Apachen default-sivun. Seuraavaksi vaihdan hieman sisältöä siihen. Käytetään komentoa `echo Hello world! |sudo tee /var/www/html/index.html` (Lehto 2022).  
+
+![kuva78](./Pictures/kuva78.png)  
+
+Käynnistin Apachen uudestaan komennolla `sudo service apache2 restart` ja etsin palvelimeni IP-osoitteen komennolla `hostname -I`. Tämän jälkeen avasin lokaalilla koneellani selaimen ja kirjoitin IP-osoitteen osoiteriville ja tadaa sivu on ylhäällä!  
+
+![kuva79](./Pictures/kuva79.png)  
+
+#### Name based virtual host
+
+Tässä kohtaa harjoitusta siirryn tunnilla tehdylle palvelimelle, joten päädyn poistamaan tässä harjoituksessa tehdyn palvelimen kokonaan.  
+
+
+
+
+
+
+
 
 
 
