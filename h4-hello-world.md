@@ -180,6 +180,37 @@ Käynnistin Apachen uudestaan komennolla `sudo service apache2 restart` ja etsin
 
 Tässä kohtaa harjoitusta siirryn tunnilla tehdylle palvelimelle, joten päädyn poistamaan tässä harjoituksessa tehdyn palvelimen kokonaan.  
 
+Tässä kohtaa palasin katsomaan omaa h3 raporttia ja käytän sitä lähteenä tämän kohdan tekemiseen.  
+
+Aloitin siirtymällä hosts tiedostoon sijainnissa /etc/hosts. Avasin hosts-tiedoston micro editorilla ja laitoin sinne 127.0.0.1 punnala.example.com.  
+
+![kuva80](./Pictures/kuva80.png)  
+
+Seuraavaksi loin uuden virtual hostin osoitteelle punnala.example.com. Käytin komentoa `sudoedit /etc/apache2/sites-available/punnala.example.com.conf` ja annoin sille seuraavanlaisen sisällön.  
+
+![kuva81](./Pictures/kuva81.png)  
+
+Tämän jälkeen laitoin weppisivun sisällön käyttäjän thomas kotihakemistoon. Luodaan ensin kansio komennolla `mkdir -p /home/thomas/public-sites/punnala.example.com/`.  
+
+![kuva82](./Pictures/kuva82.png)  
+
+Seuraavaksi komennot järjestyksessä `cd public-sites/punnala.example.com/` -> `micro index.html` -> sisältö short valid HTML page (Karvinen 2012):  
+```
+<!doctype html>
+<html>
+<head>
+	<title>Punnala Test Page</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<h1>Punnala Test Page</h1>
+	<p>Let's test UTF-8 with "päivää"</p>
+</body>
+</html>
+```
+Otin default-sivun pois päältä komennoilla `sudo a2dissite 000-default.conf` ja `
+sudo systemctl reload apache2`. Tämän jälkeen oma sivu päälle komennolla `sudo a2ensite punnala.example.com.conf` ja `sudo systemctl reload apache2`.  
+
 
 
 
