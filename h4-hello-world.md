@@ -13,7 +13,7 @@ update: 6.9.2025
 
 ## Tiivistelmä
 **11.9.25**  
-**Aloitusaika**:   
+**Aloitusaika**: 15:00  
 **Lopetusaika**:    
   
 Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h4 Maailma kuulee (Karvinen 2025). Olin tehnyt kaikki tarvittavat asennukset jo oppitunnin aikana. Avasin siis uuden serverin **UpCloudista**, jotta tässä raportissa olisi järkevä sisältö. Tämä raportti on kirjoitettu erityisesti itselleni voidakseni palata aiheen pariin, kun toimenpiteet eivät ole muistissa.  
@@ -96,6 +96,62 @@ Tämän jälkeen on mahdollisuus lisätä omia scriptejä, jotka suoritettaisiin
 ![kuva68](./Pictures/kuva68.png)  
 
 ### Alkutoimet palvelimelle
+
+Päästäksemme konfiguroimaan palvelinta, tulee meidän ottaa SSH-yhteys siihen. Käynnistin kurssilla aikaisemmin tehdyn virtuaalikoneen ja operoin uutta palvelinta sen avulla. UpCloud antaa hyvät ohjeet kuinka ottaa yhteys palvelimeen. Valitaan sivustolla äsken luotu palvelin ja mennään sivun alalaitaan, josta löytyy **How to connect** osio, sieltä avaamme välilehden **From Linux**.  
+
+![kuva69](./Pictures/kuva69.png)  
+
+Syötetään komento `ssh root@94.237.36.192` paikallisen virtuaalikoneen komentoriville. Näin saamme luotua SSH-yhteyden koneiden välille. Ensimmäisellä yhteydenotolla pyydetään varmistamaan haluammeko ottaa yhteyden tuohon IP-osoitteeseen, jos osoite täsmää kirjoitetaan `yes`. Kuten komentoriviltä näkee, olemme sisällä uudella palvelimella.  
+
+![kuva70](./Pictures/kuva70.png)  
+
+#### Palomuuri pystyyn
+
+Aloitetaan ajamalla komennot:    
+```
+sudo apt-get update
+sudo apt-get install ufw
+sudo ufw allow 22/tcp
+sudo ufw allow 80/tcp
+sudo ufw enable
+```
+Komentorivi kertoo, että palomuuri aktivoituu ja menee päälle systeemin uudelleen käynnistyksen yhteydessä. (Lehto 2022)  
+
+Komennolla `ufw status verbose` saamme näkyviin, mitä sääntöjä palomuurille on asetettu.  
+
+![kuva71](./Pictures/kuva71.png)  
+
+#### Käyttäjän lisääminen
+
+Voidaksemme käyttää palvelinta ilman roottia, tulee lisätä käyttäjä ja antaa hänelle sudo-oikeudet. Lisäsin käyttäjän komennolla `sudo adduser thomas`. Tämän jälkeen annetaan vahva salasana. Varmistetaan että tiedot pitävät paikkansa ja hyväksytään käyttäjän lisäys.  
+
+![kuva72](./Pictures/kuva72.png)  
+
+Lisäsin käyttäjän sudo-ryhmään komennolla `usermod -aG sudo thomas` ja varmistin sen menneen läpi komennolla `groups thomas`.  
+
+![kuva73](./Pictures/kuva73.png)  
+
+Tämän jälkeen kopioin rootin SSH-asetukset uudelle käyttäjälle, jotta kirjautuminen olisi mahdollista. Käytin komentoa `sudo cp -rvn /root/.ssh/ /home/thomas/` ja `sudo chown -R thomas:thomas /home/thomas/`  
+
+Seuraavaksi testasin, että pystyn kirjautumaan uudella käyttäjällä sisään käyttäen SSH-yhteyttä. Avasin uuden komentorivin lokaalisti ja kirjoitin komennon `local$ ssh thomas@94.237.36.192`. Sisässä ollaan!  
+
+![kuva74](./Pictures/kuva74.png)  
+
+### Rootin sulkeminen
+
+Suljetaan root käyttäjän sisäänkirjautumis mahdollisuus tietoturvan vuoksi. Tehdään tämä käyttäjän thomas terminaalissa komennoilla `sudo usermod --lock root` ja `sudo mv -nv /root/.ssh /root/DISABLED-ssh/`  
+
+![kuva75](./Pictures/kuva75.png)  
+
+Kokeillaan kirjautumista roottina ja huomataan, että ei onnistu.  
+
+![kuva76](./Pictures/kuva76.png)  
+
+
+
+
+
+
 
 
 
