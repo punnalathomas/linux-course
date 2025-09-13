@@ -23,7 +23,7 @@ update: 6.9.2025
   
 Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h4 Maailma kuulee (Karvinen 2025). Olin tehnyt kaikki tarvittavat asennukset jo oppitunnin aikana. Avasin siis uuden serverin **UpCloudista**, jotta tässä raportissa olisi järkevä sisältö. Tämä raportti on kirjoitettu erityisesti itselleni voidakseni palata aiheen pariin, kun toimenpiteet eivät ole tuoreessa muistissa.  
 
-Tätä raporttia lukiessa on hyvä huomioida, että UpCloudin käyttöliittymä saattaa muuttua aikaajoin, jolloin kaikki ohjeet eivät ole täsmällisiä, juuri lukijan kohdalla, perusidea kuitenkin säilyy.  
+Tätä raporttia lukiessa on hyvä huomioida, että UpCloudin käyttöliittymä saattaa muuttua aika ajoin, jolloin kaikki ohjeet eivät ole täsmällisiä, juuri lukijan kohdalla, perusidea kuitenkin säilyy.  
 
 Tämän raportin aikana asennettu palvelin oli yllättävän suoraviivaista tehdä. Käytin tässä enemmän Karvisen (2017) ohjeiden komentoja hyödyksi. Tunnilla säädimme samoja asetuksia tiedostoista. Vaihdoin takaisin tunnilla tehtyyn palvelimeen kohdassa **name based virtual host** ja poistin tässä raportissa asennetun palvelimen.  
 
