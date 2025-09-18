@@ -29,17 +29,25 @@ Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 a
 
 Domain-nimen saa helpoiten käyttöönsä esimerkiksi vuokraamalla sen joltakin nimien rekisteröijältä, kuten Namecheapilta. Namecheap hoitaa domainin tietojen rekisteröinnin verkkotunnuspäätteen rekisterkiin, esimerkiksi .com:illa se on Verisign (Greenhost 2024). Namecheap siis vuokraa nimen käyttäjälle vuosi- tai kuukausimaksua vastaan. (Lavit 2024).  
 
+**Vuokraus**: Vuokrasin Namecheapilta nimen thomaspunnala.com, nimi maksoi itselleni noin 12 euroa vuodessa. Vuokraus oli yllättävän helppoa, minun tarvitsi vain etsiä haluamaani domain-nimeä palvelun **Find your new domain name** työkalulla. Kokeilin aluksi vain [sukunimi].comia, mutta tämä oli varattu, päädyin siis ottamaan [etunimi][sukunimi].com:in. Tämän jälkeen valitsin vuokrattavan ajanjakson ja maksoin sen. (namecheap)  
 
+Vuokrauksen jälkeen omaa Domainiaan pääsee säätämään valitsemalla ensin **Account** -> **Dashboard** -> **Domain List** -> Valitaan luotu domain -> **MANAGE**. Itse tein muutokset vain välilehdeltä **Advanced DNS** löytyviin asetuksiin. Poistin HOST RECORD:ista defaulttina löytyneet asetukset ja lisäsin kaksi A-tietuetta osoittamaan palvelimeni IP-osoitteeseen. Asetin myös TTL (TimeToLive) arvon 5 minuuttiin.  
 
+@ tarkoittaa päädomainia, eli tässä tapauksessa thomaspunnala.com. Lisäsin myös alidomainin www osoittamaan samaan IP-osoitteeseen, jolloin sivua voidaan hakea myös www.thomaspunnala.com.  
 
+![kuva85](./Pictures/kuva85.png)
 
-
+**A-tietue**:  
+**Alidomain**:  
+**TTL**:  
 
 
 ## Lähteet  
 Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy. Luettavissa: https://terokarvinen.com/linux-palvelimet/. Luettu: 18.9.2025  
 
 Lavit, C. 2024. What is Domain Renting or Leasing? How Does it Work?. Luettavissa: https://www.atom.com/blog/renting-a-domain/. Luettu: 18.9.2025  
+
+Namecheap.com. Luettavissa: www.namecheap.com. Luettu: 18.9.2025  
 
 Quora. 2024. Käyttäjän Greenhost:in vastaus kysymykseen: Who owns the ".com" domain? Who started it, why, and when? Why is this not a ".co" or something else instead of "www"?. Luettavissa: https://www.quora.com/Who-owns-the-com-domain-Who-started-it-why-and-when-Why-is-this-not-a-co-or-something-else-instead-of-www. Luettu: 18.9.2025  
 
