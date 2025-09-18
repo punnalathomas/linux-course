@@ -52,7 +52,9 @@ Varmistetaan että muutokset toimivat.
 
 ![kuva87](./Pictures/kuva87.png)  
 
-**CNAME-tietue**: 
+**CNAME-tietue**: CNAME-tietue yhdistää omassa tapauksessani alidomainin -> päädomainiin. CNAME ei osoita suoraan IP-osoitteeseen vaan domainiin. Tämä on hyödyllinen tapa toteuttaa osoitus, koska nyt IP-muutokset tarvitsee tehdä vain päädomainin A-tietueeseen. Eli jos päädomainin IP-osoite muuttuisi ja alidomain olisi laitettu osoittamaan A-tietueella, joutuisimme muuttamaan alidomainin A-tietueen IP-osoitteen manuaalisesti uuteen. (Cloudfare CNAME)  
+
+
 
 
 
@@ -61,6 +63,8 @@ Varmistetaan että muutokset toimivat.
 Cloudfare. What is a DNS A record?. Luettavissa: https://www.cloudflare.com/learning/dns/dns-records/dns-a-record/. Luettu: 18.9.2025  
 
 Cloudfare. What is time-to-live (TTL)? | TTL definition. Luettavissa: https://www.cloudflare.com/learning/cdn/glossary/time-to-live-ttl/. Luettu: 18.9.2025  
+
+Cloudfare. What is a DNS CNAME record?. Luettavissa: https://www.cloudflare.com/learning/dns/dns-records/dns-cname-record/. Luettu: 18.9.2025  
 
 Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy. Luettavissa: https://terokarvinen.com/linux-palvelimet/. Luettu: 18.9.2025  
 
