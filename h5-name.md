@@ -48,6 +48,10 @@ Tässä kohtaa lähdin tekemään itselleni kahta uutta alidomainia: blog.thomas
 
 ![kuva86](./Pictures/kuva86.png)  
 
+Varmistetaan että muutokset toimivat.  
+
+![kuva87](./Pictures/kuva87.png)  
+
 **CNAME-tietue**: 
 
 
