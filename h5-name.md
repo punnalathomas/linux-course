@@ -43,6 +43,15 @@ Vuokrauksen jälkeen omaa Domainiaan pääsee säätämään valitsemalla ensin 
 
 **TTL**: Time-to-live määrittää kuinka kauan paketti tai tieto välimuistissa on voimassa, kunnes se hylätään ja haetaan uudelleen. Verkkoliikenteessä jokaisella paketilla on oma TTL-arvo, joka pienenee kun se kulkee reitittimen läpi. Kun TTL saavuttaa nollan, reititin poistaa paketin ja lähettää virheilmoituksen lähettäjälle. Tällä estetään pakettien ikuinen kierto verkossa. DNS-tietueissa TTL määrittää kuinka kauan DNS-välimuistipalvelin saa käyttää tallennettua tietuetta, kunnes se haetaan uudelleen alkuperäiseltä palvelimelta. Tämä arvo on hyvä olla pieni alussa, kun halutaan testata uusia ominaisuuksia ja muutoksia. (Cloudfare TTL)  
 
+### Alidomain
+Tässä kohtaa lähdin tekemään itselleni kahta uutta alidomainia: blog.thomaspunnala.com & projects.thomaspunnala.com. Aloitin tekemisen lisäämällä namecheapin verkkosivulla domainini HOST RECORDS:iin yhden A-tietueen projektien-sivulle ja yhden CNAME-tietueen blogi-sivulle. Molemmat alidomainit viittaavat sivuni päädomainiin. Huomioitavaa on, että CNAME-tietuetta luodessa tulee se laittaa osoittamaan domainiini, eikä IP-osoitteeseen.  
+
+![kuva86](./Pictures/kuva86.png)  
+
+**CNAME-tietue**: 
+
+
+
 
 ## Lähteet  
 Cloudfare. What is a DNS A record?. Luettavissa: https://www.cloudflare.com/learning/dns/dns-records/dns-a-record/. Luettu: 18.9.2025  
