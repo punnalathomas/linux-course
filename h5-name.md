@@ -37,12 +37,18 @@ Vuokrauksen jälkeen omaa Domainiaan pääsee säätämään valitsemalla ensin 
 
 ![kuva85](./Pictures/kuva85.png)
 
-**A-tietue**:  
-**Alidomain**:  
-**TTL**:  
+**A-tietue**: A-tietue yhdistää verkkotunnuksen nimen tiettyyn IP-osoitteeseen. Tämän avulla esimerkiksi selain tietää mihin palvelimeen otetaan yhteys, kun käyttäjä kirjoittaa verkkosivun osoitteen. (Cloudfare DNS A record)  
+
+**Alidomain**: Lyhyesti alidomain on oma sivusto, joka on osa päädoimainia. Alidomain lisätään domain-nimen alkuun, jolloin käyttäjät voidaan ohjata tiettyyn osioon verkkosivustossa. Tämä on helppo tapa rakentaa uusia sivuja ilman uutta domainia. Esimerkiksi blog.thomaspunnala.com olisi alidomain itselleni. (Shwake 2025)   
+
+**TTL**: Time-to-live määrittää kuinka kauan paketti tai tieto välimuistissa on voimassa, kunnes se hylätään ja haetaan uudelleen. Verkkoliikenteessä jokaisella paketilla on oma TTL-arvo, joka pienenee kun se kulkee reitittimen läpi. Kun TTL saavuttaa nollan, reititin poistaa paketin ja lähettää virheilmoituksen lähettäjälle. Tällä estetään pakettien ikuinen kierto verkossa. DNS-tietueissa TTL määrittää kuinka kauan DNS-välimuistipalvelin saa käyttää tallennettua tietuetta, kunnes se haetaan uudelleen alkuperäiseltä palvelimelta. Tämä arvo on hyvä olla pieni alussa, kun halutaan testata uusia ominaisuuksia ja muutoksia. (Cloudfare TTL)  
 
 
 ## Lähteet  
+Cloudfare. What is a DNS A record?. Luettavissa: https://www.cloudflare.com/learning/dns/dns-records/dns-a-record/. Luettu: 18.9.2025  
+
+Cloudfare. What is time-to-live (TTL)? | TTL definition. Luettavissa: https://www.cloudflare.com/learning/cdn/glossary/time-to-live-ttl/. Luettu: 18.9.2025  
+
 Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy. Luettavissa: https://terokarvinen.com/linux-palvelimet/. Luettu: 18.9.2025  
 
 Lavit, C. 2024. What is Domain Renting or Leasing? How Does it Work?. Luettavissa: https://www.atom.com/blog/renting-a-domain/. Luettu: 18.9.2025  
@@ -52,6 +58,8 @@ Namecheap.com. Luettavissa: www.namecheap.com. Luettu: 18.9.2025
 Quora. 2024. Käyttäjän Greenhost:in vastaus kysymykseen: Who owns the ".com" domain? Who started it, why, and when? Why is this not a ".co" or something else instead of "www"?. Luettavissa: https://www.quora.com/Who-owns-the-com-domain-Who-started-it-why-and-when-Why-is-this-not-a-co-or-something-else-instead-of-www. Luettu: 18.9.2025  
 
 Rondina, M. 2025. Why a Domain Name is Important: Benefits, Best Practices, FAQs and More. Luettavissa: https://www.networksolutions.com/blog/why-you-need-a-domain-name/. Luettu: 18.9.2025  
+
+Shawake, E. 2025. What is a subdomain? Definition, examples and setup. WIX. Luettavissa: https://www.wix.com/blog/what-is-a-subdomain. Luettu: 18.9.2025  
 
 
 
