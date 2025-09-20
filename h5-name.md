@@ -54,7 +54,25 @@ Varmistetaan että muutokset toimivat.
 
 **CNAME-tietue**: CNAME-tietue yhdistää omassa tapauksessani alidomainin -> päädomainiin. CNAME ei osoita suoraan IP-osoitteeseen vaan domainiin. Tämä on hyödyllinen tapa toteuttaa osoitus, koska nyt IP-muutokset tarvitsee tehdä vain päädomainin A-tietueeseen. Eli jos päädomainin IP-osoite muuttuisi ja alidomain olisi laitettu osoittamaan A-tietueella, joutuisimme muuttamaan alidomainin A-tietueen IP-osoitteen manuaalisesti uuteen. (Cloudfare CNAME)  
 
+### Name based virtual host alidomainille
 
+Alidomainin omaa name based virtual hostia varten kävin tekemässä uuden kansion thomaspunnala.com käyttäjäni kotihakemistoon. Tämän kansion sisään tein uuden kansion projects.thomaspunnala.com, joka sai tiedoston index.html. Lisäsin tiedostoon kuvassa näkyvän sisällön.  
+
+![kuva88](./Pictures/kuva88.png)  
+
+Tämän jälkeen siirryin hakemistossa `cd /etc/apache2/sites-available` kansioon ja lisäsin sinne alidoimainia varten konfiguraatiota varten tiedoston projects.thomaspunnala.com.conf. Tiedostolle annoin kuvassa näkyvän sisällön. Tämän jälkeen ajoin komennot `sudo a2ensite projects.thomaspunnala.com.conf` ja `sudo systemctl reload apache2`.  
+
+![kuva89](./Pictures/kuva89.png)  
+
+`curl projects.thomaspunnala.com` antoi seuraavanlaisen errorin. 403 forbidden. On siis aika tarkistaa onko luoduissa tiedostoissa ja kansioissa oikeudet kunnossa.  
+
+![kuva90](./Pictures/kuva90.png)  
+
+Ennenkuin pääsin tarkistamaan oikeuksia, huomasin asettaneeni .conf tiedostoon väärän polun. Olin tehnyt alunperin kansion punnalathomas.com, kun minun piti tehdä thomaspunnala.com. Korjasin virheen menemällä public-sites kansioon ja uudelleen nimesin halutun kansion oikeaksi. Tämän jälkeen curl projects.thomaspunnala.com näytti halutun sivun.  
+
+![kuva91](./Pictures/kuva91.png)  
+
+Nyt ilmeni uusi ongelma, eli jostain syystä projects sivu näkyy nyt kaikilla nimi-hauilla. Eli thomaspunnala.com ja projects.thomaspunnala.com näyttävät saman sisällön. kokeilin vaihtaa index.html nimeä mutta ei toimi
 
 
 
