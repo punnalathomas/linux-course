@@ -72,7 +72,13 @@ Ennenkuin pääsin tarkistamaan oikeuksia, huomasin asettaneeni .conf tiedostoon
 
 ![kuva91](./Pictures/kuva91.png)  
 
-Nyt ilmeni uusi ongelma, eli jostain syystä projects sivu näkyy nyt kaikilla nimi-hauilla. Eli thomaspunnala.com ja projects.thomaspunnala.com näyttävät saman sisällön. kokeilin vaihtaa index.html nimeä mutta ei toimi
+Nyt ilmeni uusi ongelma, eli jostain syystä projects sivu näkyy nyt kaikilla nimi-hauilla. Eli thomaspunnala.com ja projects.thomaspunnala.com näyttävät saman sisällön. Kokeilin aluksi vaihtaa projects kansiossa olevan index.html tiedostonimen -> projects.html, mutta kaikki sivut sanovat nyt forbidden you dont have permission to access this resource.  
+
+Korjasin ongelman tekemällä uuden konfiguraatiotiedoston (thomaspunnala.com:ille) apachen sites-available kansioon. Muokkasin myös projektin konfiguraatiotiedostoa lisäämällä sinne tämän rivin: DirectoryIndex projects.html, joka kertoo millä nimellä html-tiedosto löytyy. Nyt molemmat sivustot toimivat halutulla tavalla.  
+
+![kuva92](./Pictures/kuva92.png)  
+
+
 
 
 
