@@ -118,6 +118,30 @@ Jos halutaan kaikki tietuetyypit kerralla voidaan käyttää komentoa `dig thoma
 
 **google.com**: TTL-arvot olivat hyvin lyhyet A- ja AAAA-tietueille. Dig-kysely paljastikin enemmän tietoa mitä saimme host-komennolla. TTL-arvot, sekä kaikki neljä nimipalvelinta, sekä HTTPS-tietue. Huomasin myös tässä kohtaa, että pelkkä dig-komento haetaan UDP-protokolla ja dig ANY-komento haetaan TCP-protokollalla. Tämä johtunee siitä, että laajempi vastaus ei mahtuisi UDP-protokollaan, joten mennään TCP:llä että saadaan koko vastaus mukaan.  
 
+### Aakkossalaattia sähköpostiin
+**SPF**: DNS-tietue, missä määritetään, mitkä palvelimet ovat valtuutettuja lähettämään sähköpostia domainin nimissä. Vastaanottava sähköpostipalvelin tarkistaa viestin lähettäjän IP-osoitteen, suhteessa määritettyyn listaan. (Cloudfare SPF)  
+
+**DKIM**: DKIM kirjoittaa sähköpostiviestin headerin digitaalisella allekirjoituksella, joka syntyy yksityisellä avaimella. Julkinen avain on DNS:ssä, jonka avulla vastaanottaja varmistuu, että viesti on tullut oikealta domainilta ja sitä ei ole muutettu. (Cloudfare DKIM)  
+
+**DMARC**: Tämä on tietue DNS:ssä, joka kertoo vastaanottavalle sähköpostipalvelimelle, mitä tehdä kun viesti epäonnistuu SPF ja DKIM tarkistuksessa. Esimerkiksi merkitään roskapostiksi tai hylätään. (Cloudfare DMARC)  
+
+Tietojen hakemiseen on käytetty komentoja `dig TXT _dmarc.googlecom` (Andy 2021) ja `dig -t txt google.com` (WheresAlice 2010). Kuvien tulkitsemiseen on käytetty hyödyksi Google Workspace Admin Helppiä, sekä DMARC Record Checkeriä.    
+
+![kuva100](./Pictures/kuva100.png)  
+
+![kuva99](./Pictures/kuva99.png)  
+
+**DMARC**  
+1. v=DMARC1 = protokollan versio
+2. p=reject = jos SPF- tai DKIM-tarkistus epäonnistuu, niin hylätään viesti
+3. rua=mailto:mailauth-reports@google.com = raportointiosoite
+
+**SPF**  
+1. v=spf1 = protokollan versio
+2. include:_spf.google.com = googlen oma SPF-lista, joka sisältää hyväksytyt sähköpostipalvelimet
+3. ~all = softfail, eli viesti merkitään epäillyttäväksi, mutta vastaanottava palvelin voi päättää hylkääkö sen vai merkkaako esimerkiksi roskapostiin.
+
+Google on määrittänyt, että vain Googlen omat sähköpostipalvelimet saavat lähettää viestejä google.com-domainin nimissä. SPF:ään on jätetty kuitenkin softfail, joka antaa päätöksen viestin hylkäämisestä/tagaamisesta vastaanottavalle palvelimelle. DMARC:issa on määritetty kuinka toimitaan, jos DKIM- ja SPF-tarkistukset eivät mene läpi. Nämä kaksi tietuetta auttavat ehkäisemään sähköpostien väärentämistä ja parantaa viestien luotettavuutta.  
 
 
 
@@ -133,7 +157,13 @@ Cloudfare. What is time-to-live (TTL)? | TTL definition. Luettavissa: https://ww
 
 Cloudfare. What is a DNS CNAME record?. Luettavissa: https://www.cloudflare.com/learning/dns/dns-records/dns-cname-record/. Luettu: 18.9.2025  
 
-Cloudfare. What is a DNS SOA record?.https://www.cloudflare.com/learning/dns/dns-records/dns-soa-record/. Luettu: 21.9.2025
+Cloudfare. What is a DNS SOA record?.https://www.cloudflare.com/learning/dns/dns-records/dns-soa-record/. Luettu: 21.9.2025  
+
+Cloudfare. https://www.cloudflare.com/learning/email-security/dmarc-dkim-spf/. Luettavissa: https://www.cloudflare.com/learning/email-security/dmarc-dkim-spf/. Luettu: 21.9.2025  
+
+Dmarcian. DMARC Record Checker. Luettavissa: https://dmarcian.com/dmarc-inspector/. Luettu: 21.9.2025  
+
+GoogleWorkspaceAdminHelp. Set up SPF. Luettavissa: https://support.google.com/a/answer/33786#zippy=%2Cabout-spf-record-format-and-tags. Luettu: 21.9.2025  
 
 Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy. Luettavissa: https://terokarvinen.com/linux-palvelimet/. Luettu: 18.9.2025  
 
@@ -150,6 +180,10 @@ Namecheap.com. Luettavissa: www.namecheap.com. Luettu: 18.9.2025
 Quora. 2024. Käyttäjän Greenhost:in vastaus kysymykseen: Who owns the ".com" domain? Who started it, why, and when? Why is this not a ".co" or something else instead of "www"?. Luettavissa: https://www.quora.com/Who-owns-the-com-domain-Who-started-it-why-and-when-Why-is-this-not-a-co-or-something-else-instead-of-www. Luettu: 18.9.2025  
 
 Rondina, M. 2025. Why a Domain Name is Important: Benefits, Best Practices, FAQs and More. Luettavissa: https://www.networksolutions.com/blog/why-you-need-a-domain-name/. Luettu: 18.9.2025  
+
+User: Andy. 2021. Serverfault. Question: Find DKIM and DMARC Records?. Luettavissa: https://serverfault.com/questions/625008/find-dkim-and-dmarc-records. Luettu: 21.9.2025  
+
+User: WheresAlice. 2010. Serverfault. Question: Linux command to inspect TXT records of a domain [closed]. Luettavissa: https://serverfault.com/questions/148721/linux-command-to-inspect-txt-records-of-a-domain. Luettu: 21.9.2025  
 
 Shawake, E. 2025. What is a subdomain? Definition, examples and setup. WIX. Luettavissa: https://www.wix.com/blog/what-is-a-subdomain. Luettu: 18.9.2025  
 
