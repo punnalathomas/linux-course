@@ -1,4 +1,4 @@
-update:
+update: 21.9.2025  
 
 # Lokaali tietokone ja käyttöjärjestelmä
 **GPU:** Nvidia RTX 2070  
@@ -17,10 +17,14 @@ update:
 
 ## Tiivistelmä
 **11.9.25**  
-**Aloitusaika**:   
-**Lopetusaika**:  
-  
-Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h5 Nimekäs (Karvinen 2025).  
+**Aloitusaika**: 17:00   
+**Lopetusaika**:  19:00  
+
+**21.9.25**  
+**Aloitusaika**: 17:00  
+**Lopetusaika**:  19:30    
+
+Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h5 Nimekäs (Karvinen 2025). Tehtävä painottui tällä kertaa enemmän tiedon etsimiseen ja lähteitä kerääntyi hyvä määrä. Onnistuin mielestäni hyvin kaikissa kohdissa ja oppimiskokemus oli hyvä.  
 
 ## Tehtävät
 
