@@ -31,7 +31,7 @@ Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 a
 ### Domain-nimen vuokraus
 **Domain-nimi**: Miksi domain-nimi kannattaa vuokrata tai ostaa? Selitys on yksinkertainen: on huomattavasti helpompi kirjoittaa verkko-osoitteen nimi (google.com), kuin käyttää sen IP-osoitetta (8.8.8.8). Domain-nimen käyttö lisää myös brändisi tunnistettavuutta ja uskottavuutta. Kun käyttäjä miettii nimen valintaa tulisikin sen olla helposti muistettava ja selkeä, nimen päätteenä olisi myös hyvä käyttää esimerkiksi .com:ia. (Rondina 2025).  
 
-Domain-nimen saa helpoiten käyttöönsä esimerkiksi vuokraamalla sen joltakin nimien rekisteröijältä, kuten Namecheapilta. Namecheap hoitaa domainin tietojen rekisteröinnin verkkotunnuspäätteen rekisterkiin, esimerkiksi .com:illa se on Verisign (Greenhost 2024). Namecheap siis vuokraa nimen käyttäjälle vuosi- tai kuukausimaksua vastaan. (Lavit 2024).  
+Domain-nimen saa helpoiten käyttöönsä esimerkiksi vuokraamalla sen joltakin nimien rekisteröijältä, kuten Namecheapilta. Namecheap hoitaa domainin tietojen rekisteröinnin verkkotunnuspäätteen rekisteriin, esimerkiksi .com:illa se on Verisign (Greenhost 2024). Namecheap siis vuokraa nimen käyttäjälle vuosi- tai kuukausimaksua vastaan. (Lavit 2024).  
 
 **Vuokraus**: Vuokrasin Namecheapilta nimen thomaspunnala.com, nimi maksoi itselleni noin 12 euroa vuodessa. Vuokraus oli yllättävän helppoa, minun tarvitsi vain etsiä haluamaani domain-nimeä palvelun **Find your new domain name** työkalulla. Kokeilin aluksi vain [sukunimi].comia, mutta tämä oli varattu, päädyin siis ottamaan [etunimi][sukunimi].com:in. Tämän jälkeen valitsin vuokrattavan ajanjakson ja maksoin sen. (namecheap)  
 
