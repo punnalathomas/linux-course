@@ -55,7 +55,6 @@ Varmistetaan että muutokset toimivat.
 **CNAME-tietue**: CNAME-tietue yhdistää omassa tapauksessani alidomainin -> päädomainiin. CNAME ei osoita suoraan IP-osoitteeseen vaan domainiin. Tämä on hyödyllinen tapa toteuttaa osoitus, koska nyt IP-muutokset tarvitsee tehdä vain päädomainin A-tietueeseen. Eli jos päädomainin IP-osoite muuttuisi ja alidomain olisi laitettu osoittamaan A-tietueella, joutuisimme muuttamaan alidomainin A-tietueen IP-osoitteen manuaalisesti uuteen. (Cloudfare CNAME)  
 
 ### Name based virtual host alidomainille
-
 Alidomainin omaa name based virtual hostia varten kävin tekemässä uuden kansion thomaspunnala.com käyttäjäni kotihakemistoon. Tämän kansion sisään tein uuden kansion projects.thomaspunnala.com, joka sai tiedoston index.html. Lisäsin tiedostoon kuvassa näkyvän sisällön.  
 
 ![kuva88](./Pictures/kuva88.png)  
@@ -78,21 +77,73 @@ Korjasin ongelman tekemällä uuden konfiguraatiotiedoston (thomaspunnala.com:il
 
 ![kuva92](./Pictures/kuva92.png)  
 
+### DNS-tietojen tutkiminen
+**dig-komento**: Dig-komentoa voidaan käyttää DNS-nimipalvelimien kyselyyn. Komennolla saatua tietoa voidaan käyttää esimerkiksi vianmäärityksiin. Yleinen muoto komennolle on `dig @[palvelin, esim IP- tai domain-osoite] [haettavan resurssin nimi] [tyyppi, esim A]`. (Linux.die.net dig)  
+
+**host-komento**: Tätä komentoa käytetään nimien muuntamiseen IP-osoitteiksi ja toisinpäin. Komentoa voidaan käyttää esimerkiksi `host nimi[palvelin]`, eli `host google.com` näyttää A/AAAA/MX-tietueet. (Linux.die.net host)  
+
+Saadakseni komennot toimimaan komentorivillä asensin ensin dnsutils ohjelman komennoilla: `sudo apt-get update` ja `sudo apt-get install dnsutils` (Ariffud, M 2025)  
+
+Tutkimisessa on hyödynnetty seuraavia sivuja: thomaspunnala.com, hakkerointikerhon H-T8, sekä google.com.  
+
+#### Host-komento
+`host -C [palvelin]` komennolla saadaan näkyviin SOA(start of authority)-tietue, eli tärkeää tietoa domainista tai vyöhykkeestä, kuten ylläpitäjän sähköpostiosoite, päivitysajankohdan, sekä kuinka kauan palvelin odottaa päivitysten välillä (Cloudfare DNS).  
+
+![kuva93](./Pictures/kuva93.png)  
+
+**thomaspunnala.com**: Komento näyttää sivustolle IPV4-osoitteen, mutta ei IPV6. MX-tietueet ohjataan eforward.registrar-servers.com -palvelimille. Komennolla host -C thomaspunnala.com huomataan, että ensisijainen nimipalvelin on dns1.registrar-servers.com. Nimipalvelimen ylläpitäjän sähköposti on hostmaster@registrar-servers.com.  
+
+![kuva94](./Pictures/kuva94.png)  
+
+**rbin.dev**: Nyt voidaan huomata, että IP-osoitteet on jaettu useaan aliverkkoon, tämä lisää sivuston kuormanjakoa. MX-tietueet ovat myös hoidettu domain-rekisteröijän palveluilla, kuten thomaspunnala.comilla. Tästä voidaan tehdä johtopäätös, että domainit on todennäköisesti vuokrattu samasta palvelusta, koska domainien rekisteröinti ja MX-rakenne ovat samanlaiset.  
+
+![kuva95](./Pictures/kuva95.png)  
+
+**google.com**: Huomataan että löytyy IPv4- ja IPv6-osoitteet. Oma sähköpostipalvelin: smtp.google.com. Google hallitsee myös omaa domainiaan itse. Päivitysajankohdat ovat myös lyhyemmät, jolloin googlen DNS-järjestelmä reagoi nopeammin muutoksiin.  
+
+Tämä rivi `google.com has HTTP service bindings 1 . alpn="h2,h3"` kertoo, että google.com tukee HTTP/2- ja HTTP/3-protokollia. Eli asiakkaan ei tarvitse selvittää protkollaa yhteydenmuodostuksen aikana. Tämä nopeuttaa yhteydenmuodostusta. (Datatracker)  
+
+#### Dig-komento
+Jos halutaan kaikki tietuetyypit kerralla voidaan käyttää komentoa `dig thomaspunnala.com ANY`. Dig-komento eroaa host-komennosta niin, että dig näyttää myös kyselyn rakenteen: header, question, answer. (Linux.die.net dig)  
+
+![kuva96](./Pictures/kuva96.png)  
+
+**thomaspunnala.com**: Nämä kaksi kyselyä näyttivät aikalailla samaa tietoa mitä sain jo host-kohdassa. Nyt voidaan huomata myös että välimuistin keston tietueille, joka on sama 5 minuuttia minkä asetin namecheapin asetuksissa. Myös NS-tietueet, eli ketkä vastaavat domainin DNS-tiedoista.  
+
+![kuva97](./Pictures/kuva97.png)  
+
+**rbin.dev**: Tälle sivustolle saatiin myös A-tietueiden TTL-arvot mukaan, joka on 1799 sekunttia. NS-tietueet ovat samat kuin itselläni. Voidaan myös huomata tietueet NSEC, RRSIG ja DNSKEY, jotka kertovat että sivusto tukee DNSSEC:iä. Tämä on DNS-järjestelmän laajennus, joka lisää kryptografisen todennuksen. Voidaan siis varmistua, että DNS-kyselyihin saadut vastaukset tulevat oikeilta auktoritatiiviselta nimipalvelulta ja eivät ole muuttuneet matkalla (Khan, T & Goodwin, M).  
+
+![kuva98](./Pictures/kuva98.png)  
+
+**google.com**: TTL-arvot olivat hyvin lyhyet A- ja AAAA-tietueille. Dig-kysely paljastikin enemmän tietoa mitä saimme host-komennolla. TTL-arvot, sekä kaikki neljä nimipalvelinta, sekä HTTPS-tietue. Huomasin myös tässä kohtaa, että pelkkä dig-komento haetaan UDP-protokolla ja dig ANY-komento haetaan TCP-protokollalla. Tämä johtunee siitä, että laajempi vastaus ei mahtuisi UDP-protokollaan, joten mennään TCP:llä että saadaan koko vastaus mukaan.  
 
 
 
 
 
 ## Lähteet  
+Ariffud, M. 2025. How to use the Linux dig command. Hostinger. Luettavissa: https://www.hostinger.com/tutorials/linux-dig-command#Installing_and_setting_up_dig. Luettu: 21.9.2025  
+
+Datatracker. Service Binding and Parameter Specification via the DNS (SVCB and HTTPS Resource Records). Luettavissa: https://datatracker.ietf.org/doc/rfc9460/. Luettu: 21.9.2025  
+
 Cloudfare. What is a DNS A record?. Luettavissa: https://www.cloudflare.com/learning/dns/dns-records/dns-a-record/. Luettu: 18.9.2025  
 
 Cloudfare. What is time-to-live (TTL)? | TTL definition. Luettavissa: https://www.cloudflare.com/learning/cdn/glossary/time-to-live-ttl/. Luettu: 18.9.2025  
 
 Cloudfare. What is a DNS CNAME record?. Luettavissa: https://www.cloudflare.com/learning/dns/dns-records/dns-cname-record/. Luettu: 18.9.2025  
 
+Cloudfare. What is a DNS SOA record?.https://www.cloudflare.com/learning/dns/dns-records/dns-soa-record/. Luettu: 21.9.2025
+
 Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy. Luettavissa: https://terokarvinen.com/linux-palvelimet/. Luettu: 18.9.2025  
 
+Khan, T & Goodwin, M. What is DNSSEC (DNS security extensions)?. Luettavissa: https://www.ibm.com/think/topics/dnssec. Luettu: 21.9.2025  
+
 Lavit, C. 2024. What is Domain Renting or Leasing? How Does it Work?. Luettavissa: https://www.atom.com/blog/renting-a-domain/. Luettu: 18.9.2025  
+
+Linux.die.net. dig(1) - Linux man page. Luettavissa: https://linux.die.net/man/1/dig. Luettu: 21.9.2025  
+
+Linux.die.net. host(1) - Linux man page. Luettavissa: https://linux.die.net/man/1/host. Luettu: 21.9.2025  
 
 Namecheap.com. Luettavissa: www.namecheap.com. Luettu: 18.9.2025  
 
