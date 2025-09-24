@@ -147,6 +147,8 @@ Tietojen hakemiseen on käytetty komentoja `dig TXT _dmarc.googlecom` (Andy 2021
 
 Google on määrittänyt, että vain Googlen omat sähköpostipalvelimet saavat lähettää viestejä google.com-domainin nimissä. SPF:ään on jätetty kuitenkin softfail, joka antaa päätöksen viestin hylkäämisestä/tagaamisesta vastaanottavalle palvelimelle. DMARC:issa on määritetty kuinka toimitaan, jos DKIM- ja SPF-tarkistukset eivät mene läpi. Nämä kaksi tietuetta auttavat ehkäisemään sähköpostien väärentämistä ja parantaa viestien luotettavuutta.  
 
+Jäin miettimään miksi SPF:n on jätetty softfail vaikka DMARC:issa on määritetty reject.  
+
 
 
 
