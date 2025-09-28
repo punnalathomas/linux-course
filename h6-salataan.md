@@ -57,6 +57,16 @@ Tällä aktivoidaan SSL:n kuuntelemaan porttia 443 ja määritetään sertifikaa
 
 ## Tehtävät
 
+### TLS-sertifikaatti
+Tämän osion lähteenä on käytetty Karvisen (2025) oppitunnin ohjeistusta. Alotin tehtävän tekemisen käynnistämällä lokaalin linux koneen, tämän jälkeen otin yhteyden SSH:lla pilvessä olevaan palvelimeeni.  
+
+Aluksi käynnistin uudelleen apachen komennolla `sudo systemctl restart apache2` ja tarkistin että verkkosivu toimii. Avasin thomaspunnala.com sivun ja totesin että toimii hyvin.  
+
+Seuraavaksi avataan tulimuuriin reikä HTTPS-yhteydelle. Annetaan komento `sudo ufw allow 443/tcp` ja tarkistetaan komennolla `sudo ufw status verbose`, että asetus toimii.  
+
+![kuva101](./Pictures/kuva101.png)  
+
+
 
 
 
