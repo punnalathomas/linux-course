@@ -73,7 +73,7 @@ Aloitin sivun testauksen menemällä Karvisen ohjeiden mukaan Qualysin SSL-testi
 
 Overall rating on A-. Katsoin myös Gianglexin (2025) harjoitustyötä ja huomasin, että itseltäni puuttui myös DNS CAA. Gianglexin mukaan CAA on DNS tietue, joka määrittää ketkä voivat antaa domainille varmenteita. Lähdin korjaamaan tätä raportin ohjeiden mukaan.  
 
-Kirjauduin Namecheapin sivustolle ja kävin lisäämässä CAA-tietueen Advanced DNS asetuksista. Host kohtaan asetin thomaspunnala.com ja value kohtaan letsencrypt.org. Päädyin tekemään kaksi CAA-tietuetta. Olennaiset erot ovat 0 issue ja 0issuewild. Tämä ei vielä korjannut asiaa testin mukaan, voi olla että tiedot eivät ole päivittyneet vielä.  
+Kirjauduin Namecheapin sivustolle ja kävin lisäämässä CAA-tietueen Advanced DNS asetuksista. Host kohtaan asetin @-merkin (osoittaa omaan domainiini) ja value kohtaan letsencrypt.org. Päädyin tekemään kaksi CAA-tietuetta. Olennaiset erot ovat 0 issue ja 0issuewild. Tämä ei vielä korjannut asiaa testin mukaan, voi olla että tiedot eivät ole päivittyneet vielä.  
 
 ![kuva106](./Pictures/kuva106.png)  
 
