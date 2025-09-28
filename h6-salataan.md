@@ -66,6 +66,17 @@ Seuraavaksi avataan tulimuuriin reikä HTTPS-yhteydelle. Annetaan komento `sudo 
 
 ![kuva101](./Pictures/kuva101.png)  
 
+Tämän jälkeen asensin certbotin komennolla `sudo apt-get install certbot python3-certbot-apache`. Seuraavaksi annetaan Certbotille seuraavan komento `sudo certbot --apache --domains thomaspunnala.com,www.thomaspunnala.com`, jolla Certbot hoitaa salaukseen liittyvät asetukset automaattisesti. Asennuksen jälkeen kävin katsomassa thomaspunnala.comin konfiguraatio tiedostoa ja siellä näkyi Certbotin asettamat asetukset.  
+
+![kuva102](./Pictures/kuva102.png)  
+
+Kävin katsomassa selaimella thomaspunnala.com ja siellä näkyy että https-yhteys toimii.  
+
+![kuva103](./Pictures/kuva103.png)  
+
+Tässä vielä varmenntetiedot jossa näkyy Lets Encrypt myöntäjänä.  
+
+![kuva104](./Pictures/kuva104.png)  
 
 
 
