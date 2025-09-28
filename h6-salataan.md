@@ -17,10 +17,10 @@ update: 28.9.2025
 
 ## Tiivistelmä
 **28.9.25**  
-**Aloitusaika**:    
-**Lopetusaika**:      
+**Aloitusaika**: 12:00  
+**Lopetusaika**: 15:00  
 
-Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h6 Salataampa (Karvinen 2025).
+Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h6 Salataampa (Karvinen 2025). Tässä tehtävässä oli tarkoituksena hankkia TLS-sertifikaatti Lets Encryptilla, sekä testata oman sivun TLS-ratingia. Tehtävän tekeminen onnistui hyvin ja suurempia ongelmia ei ilmennyt tekemisen aikana. 
 
 ## Lets Encrypt
 Voidaksemme hankkia automaattisesti selaimen luottamia varmenteita tarvitsee meidän esimerkiksi ajaa ACME-asiakasohjelmaa verkkopalvelimella. Yksinkertaisimmillaan ACME-asiakas todistaa varmentajalle (certificate authority), että verkkotunnusta hallitsee asiakkaan verkkopalvelin. (Lets Encrypt 2025)  
@@ -41,7 +41,7 @@ Listen 443
     SSLCertificateKeyFile "/path/to/www.example.com.key"
 </VirtualHost>
 ```
-Tällä aktivoidaan SSL:n kuuntelemaan porttia 443 ja määritetään sertifikaatin ja avaimen tieodostot. (Apache 2025)  
+Tällä aktivoidaan SSL:n kuuntelemaan porttia 443 ja määritetään sertifikaatin ja avaimen tiedostot. (Apache 2025)  
 
 ## Tehtävät
 
