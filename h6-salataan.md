@@ -1,15 +1,3 @@
-muistiinpanot:  
-set group id = g+s  
-1. asennetaan certbot opettajan komennolla
-2. reikä 443/tcp
-3. sudo certbot --apache --domains thomaspunnala.com,www.thomaspunnala.com
-4. enter skip
-5. yes
-6. alidomaineille omat ajot
-7. sisennykset kuntoon .conf tiedostoista
-8. 
-
-
 update: 28.9.2025  
 
 # Lokaali tietokone ja käyttöjärjestelmä
@@ -85,7 +73,19 @@ Aloitin sivun testauksen menemällä Karvisen ohjeiden mukaan Qualysin SSL-testi
 
 Overall rating on A-. Katsoin myös Gianglexin (2025) harjoitustyötä ja huomasin, että itseltäni puuttui myös DNS CAA. Gianglexin mukaan CAA on DNS tietue, joka määrittää ketkä voivat antaa domainille varmenteita. Lähdin korjaamaan tätä raportin ohjeiden mukaan.  
 
-Kirjauduin Namecheapin sivustolle ja kävin lisäämässä CAA-tietueen Advanced DNS asetuksista. Host kohtaan asetin thomaspunnala.com ja value kohtaan letsencrypt.org.  
+Kirjauduin Namecheapin sivustolle ja kävin lisäämässä CAA-tietueen Advanced DNS asetuksista. Host kohtaan asetin thomaspunnala.com ja value kohtaan letsencrypt.org. Päädyin tekemään kaksi CAA-tietuetta. Olennaiset erot ovat 0 issue ja 0issuewild. Tämä ei vielä korjannut asiaa testin mukaan, voi olla että tiedot eivät ole päivittyneet vielä.  
+
+![kuva106](./Pictures/kuva106.png)  
+
+Kokeilin komentorivillä komentoa `dig CAA thomaspunnala.com` ja se antoi halutun tuloksen, eli CAA on toiminnassa.  
+
+![kuva107](./Pictures/kuva107.png)  
+
+Seuraavaksi lähdin tutustumaan sertifikaatin automaattiseen uusimiseen. Löysin Bobcares-sivustolta artikkelin, jossa mainittiin asiasta ja löysin komennon jolla voin tarkistaa onko auto-renew päällä. Ajoin komennon `sudo certbot renew --dry-run`, joka simuloi jo olemassa olevan sertifikaatin uusimista. Tulos toimi, joten oletan sen toimivan halutulla tavalla. (Nikhath 2023)  
+
+Certbot on siis asentanut itse tämän automaattisen uusimisen asennuksen yhteydessä.  
+
+![kuva108](./Pictures/kuva108.png)  
 
 
 
@@ -98,6 +98,8 @@ Gianglex. 2025. h6-salataanpa. Luettavissa: https://github.com/gianglex/Courses/
 Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy. Luettavissa: https://terokarvinen.com/linux-palvelimet/#h6-salataampa. Luettu: 28.9.2025  
 
 Lets Encrypt. 2025. How It Works. Luettavissa: https://letsencrypt.org/how-it-works/. Luettu: 28.9.2025  
+
+Nikhath, K. 2023. Debian Certbot Auto Renew as easy as 1-2-3. Luettavissa: https://bobcares.com/blog/debian-certbot-auto-renew/. Luettu: 28.9.2025  
 
 Qualys. 2025. SSL Server Test. Luettavissa: https://www.ssllabs.com/ssltest/. Luettu: 28.9.2025  
 
