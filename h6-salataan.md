@@ -74,9 +74,18 @@ Kävin katsomassa selaimella thomaspunnala.com ja siellä näkyy että https-yht
 
 ![kuva103](./Pictures/kuva103.png)  
 
-Tässä vielä varmenntetiedot jossa näkyy Lets Encrypt myöntäjänä.  
+Tässä vielä varmennetiedot jossa näkyy Lets Encrypt myöntäjänä.  
 
 ![kuva104](./Pictures/kuva104.png)  
+
+### Sivun testaus
+Aloitin sivun testauksen menemällä Karvisen ohjeiden mukaan Qualysin SSL-testi sivulle ja syötin sinne oman verkkosivuni thomaspunnala.com. Sivusto generoi tämän jälkeen SSL-reportin sivustostani. (Qualys 2025)  
+
+![kuva105](./Pictures/kuva105.png)   
+
+Overall rating on A-. Katsoin myös Gianglexin (2025) harjoitustyötä ja huomasin, että itseltäni puuttui myös DNS CAA. Gianglexin mukaan CAA on DNS tietue, joka määrittää ketkä voivat antaa domainille varmenteita. Lähdin korjaamaan tätä raportin ohjeiden mukaan.  
+
+Kirjauduin Namecheapin sivustolle ja kävin lisäämässä CAA-tietueen Advanced DNS asetuksista. Host kohtaan asetin thomaspunnala.com ja value kohtaan letsencrypt.org.  
 
 
 
@@ -84,7 +93,14 @@ Tässä vielä varmenntetiedot jossa näkyy Lets Encrypt myöntäjänä.
 ## Lähteet
 Apache. 2025. SSL/TLS Strong Encryption: How-To. Luettavissa: https://httpd.apache.org/docs/2.4/ssl/ssl_howto.html#configexample. Luettu: 28.9.2025  
 
+Gianglex. 2025. h6-salataanpa. Luettavissa: https://github.com/gianglex/Courses/blob/main/Linux-Palvelimet/h6-salataampa.md. Luettu: 28.9.2025  
+
 Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy. Luettavissa: https://terokarvinen.com/linux-palvelimet/#h6-salataampa. Luettu: 28.9.2025  
-Lets Encrypt. 2025. How It Works. luettavissa: https://letsencrypt.org/how-it-works/. Luettu: 28.9.2025  
+
+Lets Encrypt. 2025. How It Works. Luettavissa: https://letsencrypt.org/how-it-works/. Luettu: 28.9.2025  
+
+Qualys. 2025. SSL Server Test. Luettavissa: https://www.ssllabs.com/ssltest/. Luettu: 28.9.2025  
+
+
 
 
