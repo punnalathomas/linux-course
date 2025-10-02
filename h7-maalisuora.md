@@ -1,20 +1,3 @@
-tunnin vinkit:  
-oikeudet skriptiin: chmod a+x scripti.sh  
-#install docker to debian:
-https://docs.docker.com/engine/install/debian/
-
-#docker tutorial
-https://docs.docker.com/get-started/docker-overview/
-
-#test docker installation:
-sudo docker run hello-world
-
-#download debian13 docker image
-sudo docker pull debian:trixie
-
-#run the container, start interactive terminal and bash shell
-sudo docker run -it debian:trixie bash
-
 update: 2.10.2025  
 
 # Lokaali tietokone ja käyttöjärjestelmä
@@ -35,9 +18,9 @@ update: 2.10.2025
 ## Tiivistelmä
 **2.10.25**  
 **Aloitusaika**: 12:15    
-**Lopetusaika**: 
+**Lopetusaika**: 15:20  
 
-Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h7 Maalisuora (Karvinen 2025). Tein harjoitukset paikallisella virtuaalikoneellani.  
+Tämän harjoituksen tavoitteet löytyvät Tero Karvisen Linux Palvelimet 2025 alkusyksyn web sivulta kohdasta h7 Maalisuora (Karvinen 2025). Tein harjoitukset paikallisella virtuaalikoneellani. Tässä raportissa tutustutaan lyhyesti eri ohjelmointikielien käyttämiseen Linuxilla. Lopussa on myös vanhan labraharjoitus, joka kokoaa tähän asti opittua asiaa yhteen. Onnistuin harjoituksessa hyvin ja isompia ongelmia ei ilmennyt.  
 
 ## Hello world
 Ajoin aluksi komennon `sudo apt-get update`, koska tiesin lataavani uusia ohjelmia tehtävää varten. Halusin myös ajaa kommennot ilman ./ alkua, tein kotihakemistooni bin kansion. Tarkistin myös löytyykö .profile tiedostosta tarvittavat tiedot komennoilla, `$ ls -a ~ | grep profile` ja `cat ~/.profile`. Tiedostossa oli kaikki oikein joten testasin nyt toimiiko komento `echo $PATH` haluamallani tavalla. Aluksi se palautti /usr/ alkuisen polun, mutta latasin .profilen uudelleen komennolla `source ~/.profile` ja uudestaan `echo $PATH`. Nyt polku on /home/thomas/ alkuinen. Seuraavaksi laitan tulevat scriptit tuonne kotihakemiston /bin/ -kansioon, jolloin komentojen tulisi toimia ilman ./ -alkua. (Heinonen 2025)  
@@ -130,7 +113,6 @@ Testattuna toisella käyttäjällä:
 ![kuva124](./Pictures/kuva124.png)  
 
 
-exit
 
 ## Lähteet
 Geeksforgeeks. 2025. Hello World Program in Perl. Luettavissa: https://www.geeksforgeeks.org/perl/hello-world-program-in-perl/. Luettu: 2.10.2025  
