@@ -83,6 +83,25 @@ Oikeudet kuntoon ja ajetaan ->. (Geeksforgeeks 2025)
 
 ![kuva115](./Pictures/kuva115.png)  
 
+## Oma komento
+Halusin tehdä Pythonilla komennon joka kysyy käyttäjän nimeä ja vastaa tämän jälkeen "Hei [käyttäjä]". Lisäsin myös ominaisuuden joka kysyy nimeä niin kauan, että se on sallitussa muodossa. Sallittu muoto oli ei numeroita tai muita erikoismerkkejä.  
+
+Aloitin tekemällä kotihakemistoni bin-kansioon tiedoston greetuser.py ja annoin sille seuraavan sisällön:  
+
+![kuva116](./Pictures/kuva116.png)  
+
+Oikeudet kuntoon ja testaus -> toimi halutulla tavalla. Seuraavaksi on aika laittaa se kaikkien käyttäjien saataville. Päädyin ottamaan .py lopun tiedostostani kopioimalla sen uudeksi tiedostoksi nimeltä greetuser, jolloin komentoa voidaan ajaa suoraan `greetuser`.  
+
+Halusin tehdä symbolisen linkin /usr/local/bin/greetuser -polkuun, jolloin voin muokata ohjelmaa omalla käyttäjällä ja muutokset tulevat heti voimaan. Käytin tähän komentoa `sudo ln -s /home/thomas/bin/greetuser /usr/local/bin/greetuser`. Tarkistin vielä, että linkki näkyy oikein. (Heinonen 2025)     
+
+![kuva117](./Pictures/kuva117.png)
+
+Seuraavaksi halusin testata toimiiko tämä ohjelma toisilla käyttäjillä. Tein käyttäjän thomastest komennolla `sudo adduser thomastest` ja vaihdoin käyttäjälle komennolla `su thomastest`. (Gianglex 2025)  
+
+Komento toimi hienosti uudella käyttäjällä!  
+
+![kuva118](./Pictures/kuva118.png)  
+
 
 
 
@@ -91,6 +110,8 @@ Oikeudet kuntoon ja ajetaan ->. (Geeksforgeeks 2025)
 
 ## Lähteet
 Geeksforgeeks. 2025. Hello World Program in Perl. Luettavissa: https://www.geeksforgeeks.org/perl/hello-world-program-in-perl/. Luettu: 2.10.2025  
+
+Gianglex. 2025. h7-maalisuora.md. Luettavissa: https://github.com/gianglex/Courses/blob/main/Linux-Palvelimet/h7-maalisuora.md. Luettu: 2.10.2025  
 
 Heinonen, J. 2025. linux-01102025.md. Luettavissa: https://github.com/johannaheinonen/johanna-test-repo/blob/main/linux-01102025.md. Luettu: 2.10.2025  
 
