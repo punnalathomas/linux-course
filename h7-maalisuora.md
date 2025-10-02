@@ -102,6 +102,19 @@ Komento toimi hienosti uudella käyttäjällä!
 
 ![kuva118](./Pictures/kuva118.png)  
 
+## Vanha labra
+Valitsin tähän vuoden 2024 labran. (Karvinen 2024)  
+
+### Ei kolmea sekoseiskaa
+Kävin tekemässä raporttia varten kansion reports ja lisäsin sinne tiedoston index.md. Tämän jälkeen muutin oikeudet lukea ja kirjoittaa tiedostoon. Käytin tähän komentoa `chmod go-rwx index.md`, eli luku- ja kirjoitusoikeus pois group:eilta ja others:eilta.  
+
+![kuva119](./Pictures/kuva119.png)  
+
+Testattuna toisella käyttäjällä:  
+
+![kuva121](./Pictures/kuva121.png)  
+
+![kuva120](./Pictures/kuva120.png)  
 
 
 
@@ -116,4 +129,7 @@ Gianglex. 2025. h7-maalisuora.md. Luettavissa: https://github.com/gianglex/Cours
 Heinonen, J. 2025. linux-01102025.md. Luettavissa: https://github.com/johannaheinonen/johanna-test-repo/blob/main/linux-01102025.md. Luettu: 2.10.2025  
 
 Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy. Luettavissa: https://terokarvinen.com/linux-palvelimet/. Luettu: 2.10.2025  
+
+Karvinen, T. 2024. Final Lab for Linux Palvelimet 2024 Spring. Luettavissa: https://terokarvinen.com/2024/arvioitava-laboratorioharjoitus-2024-linux-palvelimet/. Luettu: 2.10.2025  
+
 
