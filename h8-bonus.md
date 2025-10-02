@@ -1,3 +1,4 @@
+update: 2.10.2025  
 # Tehdyt vapaaehtoiset tehtävät
 1. H2 komentaja pingviini g): https://github.com/punnalathomas/linux-course/blob/main/h2-linux-commands.md
 2. H2 komentaja pingviini h): https://github.com/punnalathomas/linux-course/blob/main/h2-linux-commands.md
