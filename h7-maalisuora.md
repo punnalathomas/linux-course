@@ -61,13 +61,37 @@ Olin unohtanut laittaa python-tiedoston alkuun `#!/usr/bin/env python3`, joten t
 
 ![kuva113](./Pictures/kuva113.png)  
 
-### 
+### Bash
+Siirryin taas kotihakemistoni bin-kansioon ja loin sinne helloworld.sh -tiedoston. Tiedostolle annoin seuraavan sisällön:
+```
+#!/bin/bash
+
+echo "Hello World"
+```
+Tämän jälkeen oikeudet kuntoon komennolla `chmod +x helloworld.sh` ja kokeillaan toimintaa komennolla `helloworld.sh`. Hyvin näytti toimivan.  
+
+![kuva114](./Pictures/kuva114.png)  
+
+### Perl
+Aluksi tarkistin löytyykö Perl koneeltani komennolla `perl -v`, tämä palautti perl 5, version 40. Eli ohjelma löytyy. Nyt luodaan tiedosto samalla tavalla kuin aikaisemmin. `nano helloworld.perl` ja annetaan sisällöksi:  
+```
+#!/usr/bin/env perl
+print "Hello world\n";
+```
+
+Oikeudet kuntoon ja ajetaan ->. (Geeksforgeeks 2025)   
+
+![kuva115](./Pictures/kuva115.png)  
+
+
 
 
 
 
 
 ## Lähteet
+Geeksforgeeks. 2025. Hello World Program in Perl. Luettavissa: https://www.geeksforgeeks.org/perl/hello-world-program-in-perl/. Luettu: 2.10.2025  
+
 Heinonen, J. 2025. linux-01102025.md. Luettavissa: https://github.com/johannaheinonen/johanna-test-repo/blob/main/linux-01102025.md. Luettu: 2.10.2025  
 
 Karvinen, T. 2025. Linux Palvelimet 2025 alkusyksy. Luettavissa: https://terokarvinen.com/linux-palvelimet/. Luettu: 2.10.2025  
