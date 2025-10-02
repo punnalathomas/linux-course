@@ -6,3 +6,4 @@ update: 2.10.2025
 4. H4 Maailma kuulee d): https://github.com/punnalathomas/linux-course/blob/main/h4-hello-world.md
 5. H5 Nimekäs b)(molemmat vapaaehtoiset tehty), d): https://github.com/punnalathomas/linux-course/blob/main/h5-name.md
  
+Mitään tehtävää ei ole parannettu ristiinarvioinnin jälkeen, koska parannettavaa ei tullut ilmi.
