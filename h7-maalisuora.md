@@ -116,10 +116,21 @@ Testattuna toisella käyttäjällä:
 
 ![kuva120](./Pictures/kuva120.png)  
 
+### Howdy
+
+![kuva122](./Pictures/kuva122.png)  
 
 
+### Etusivu uusiksi
+
+![kuva123](./Pictures/kuva123.png)  
+
+### Salattua hallintaa
+
+![kuva124](./Pictures/kuva124.png)  
 
 
+exit
 
 ## Lähteet
 Geeksforgeeks. 2025. Hello World Program in Perl. Luettavissa: https://www.geeksforgeeks.org/perl/hello-world-program-in-perl/. Luettu: 2.10.2025  
